@@ -1,0 +1,13 @@
+# data and artefacts
+data/
+indexes/
+shards/
+*.npy
+*.faiss
+*.npz
+retrieval_result.json
+*.zip
+# env
+__pycache__/
+.ipynb_checkpoints/
+.env

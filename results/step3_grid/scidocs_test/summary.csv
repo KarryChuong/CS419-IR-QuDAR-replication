@@ -1,0 +1,18 @@
+axis,method,Recall@10,nDCG@10,Precision@1,"best (a, b1, b2)",max |diff| vs eval_results
+retriever_type (OS-OD),Static Avg,0.1511,0.143,0.1635,,0.0
+retriever_type (OS-OD),Static UB,0.1744,0.1664,0.197,"(np.float64(0.4), np.float64(0.0), np.float64(0.0))",0.0011
+retriever_type (OS-OD),Query-wise UB,0.2061,0.2038,0.264,,
+query_format_sparse (OS-ES),Static Avg,0.1679,0.1575,0.1728,,0.0
+query_format_sparse (OS-ES),Static UB,0.1784,0.1684,0.184,"(np.float64(0.0), np.float64(0.4), np.float64(0.0))",0.009
+query_format_sparse (OS-ES),Query-wise UB,0.2135,0.2108,0.266,,
+query_format_dense (OD-ED),Static Avg,0.1311,0.1232,0.141,,0.0
+query_format_dense (OD-ED),Static UB,0.1486,0.1402,0.156,"(np.float64(1.0), np.float64(0.0), np.float64(0.7))",0.007
+query_format_dense (OD-ED),Query-wise UB,0.176,0.1742,0.231,,
+dual (4 lists),Static Avg,0.1682,0.1585,0.1791,,
+dual (4 lists),Static UB,0.1923,0.1823,0.206,"(np.float64(0.4), np.float64(0.5), np.float64(0.6))",
+dual (4 lists),Query-wise UB,0.2749,0.281,0.393,,
+check,os,0.1653,0.1578,0.183,,0.0
+check,od,0.095,0.0889,0.102,,0.0
+check,es,0.1459,0.1323,0.132,,0.0
+check,ed,0.1361,0.1283,0.146,,0.0
+check,qudar_simple_equal,0.1901,0.1793,0.203,,0.0
