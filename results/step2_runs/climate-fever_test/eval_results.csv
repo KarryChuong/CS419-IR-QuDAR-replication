@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+climate-fever_test,climate-fever,10,os,0.1733,0.1361,0.0916,0.1147,0.1966,0.3596
+climate-fever_test,climate-fever,10,od,0.0999,0.0673,0.0418,0.0384,0.0939,0.2072
+climate-fever_test,climate-fever,10,es,0.2576,0.2053,0.1387,0.1798,0.2903,0.514
+climate-fever_test,climate-fever,10,ed,0.1234,0.0991,0.0647,0.0951,0.1551,0.2736
+climate-fever_test,climate-fever,10,qudar_simple_rrf,0.2422,0.1932,0.1312,0.1694,0.2738,0.4912
+climate-fever_test,climate-fever,10,qudar_simple_equal,0.2504,0.2047,0.1408,0.1909,0.2939,0.5042
+climate-fever_test,climate-fever,10,qudar_confidence,0.2507,0.2043,0.1401,0.1896,0.2928,0.5068
+climate-fever_test,climate-fever,10,sha_os_od,0.1618,0.1273,0.0863,0.1073,0.1832,0.3337
+climate-fever_test,climate-fever,10,shb_os_od,0.1902,0.155,0.1071,0.1453,0.2246,0.3883
+climate-fever_test,climate-fever,10,dhb_os_od,0.2222,0.1879,0.1317,0.1902,0.2727,0.456
+climate-fever_test,climate-fever,10,sha_os_es,0.2461,0.1988,0.1369,0.1771,0.2807,0.4909
+climate-fever_test,climate-fever,10,shb_os_es,0.2814,0.2313,0.1616,0.2117,0.326,0.5577
+climate-fever_test,climate-fever,10,dhb_os_es,0.3316,0.29,0.209,0.3068,0.411,0.6397
+climate-fever_test,climate-fever,10,sha_od_ed,0.13,0.0984,0.064,0.0784,0.145,0.2767
+climate-fever_test,climate-fever,10,shb_od_ed,0.1464,0.1138,0.075,0.1016,0.1689,0.3094
+climate-fever_test,climate-fever,10,dhb_od_ed,0.1786,0.1494,0.1021,0.1518,0.2229,0.3792

@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+hotpotqa_train,hotpotqa,10,os,0.6206,0.5899,0.4973,0.6823,0.7547,0.8827
+hotpotqa_train,hotpotqa,10,od,0.4079,0.3585,0.2791,0.3784,0.4743,0.6658
+hotpotqa_train,hotpotqa,10,es,0.4173,0.3675,0.2966,0.3783,0.4633,0.6187
+hotpotqa_train,hotpotqa,10,ed,0.4618,0.4229,0.347,0.4628,0.542,0.685
+hotpotqa_train,hotpotqa,10,qudar_simple_rrf,0.6779,0.6171,0.5228,0.6581,0.7473,0.9004
+hotpotqa_train,hotpotqa,10,qudar_simple_equal,0.6913,0.6439,0.5529,0.7029,0.7827,0.9162
+hotpotqa_train,hotpotqa,10,qudar_confidence,0.6936,0.6483,0.5577,0.7123,0.789,0.9177
+hotpotqa_train,hotpotqa,10,sha_os_od,0.574,0.5369,0.4458,0.6094,0.6909,0.8409
+hotpotqa_train,hotpotqa,10,shb_os_od,0.6496,0.617,0.5239,0.7083,0.7797,0.9091
+hotpotqa_train,hotpotqa,10,dhb_os_od,0.6794,0.6574,0.5677,0.7673,0.8253,0.9288
+hotpotqa_train,hotpotqa,10,sha_os_es,0.5846,0.5401,0.4541,0.5934,0.6739,0.8165
+hotpotqa_train,hotpotqa,10,shb_os_es,0.6757,0.6396,0.5477,0.726,0.7952,0.9153
+hotpotqa_train,hotpotqa,10,dhb_os_es,0.7195,0.6971,0.6136,0.8031,0.8515,0.9365
+hotpotqa_train,hotpotqa,10,sha_od_ed,0.4934,0.4463,0.3633,0.4814,0.5712,0.737
+hotpotqa_train,hotpotqa,10,shb_od_ed,0.555,0.5054,0.417,0.5451,0.6372,0.801
+hotpotqa_train,hotpotqa,10,dhb_od_ed,0.6032,0.575,0.4911,0.6595,0.7229,0.8438

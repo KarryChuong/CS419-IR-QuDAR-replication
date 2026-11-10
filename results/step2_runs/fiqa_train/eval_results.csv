@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+fiqa_train,fiqa,10,os,0.3071,0.248,0.1916,0.2295,0.3106,0.4702
+fiqa_train,fiqa,10,od,0.1606,0.1236,0.0892,0.1082,0.1667,0.2813
+fiqa_train,fiqa,10,es,0.203,0.1479,0.1085,0.1113,0.1808,0.3216
+fiqa_train,fiqa,10,ed,0.1367,0.0964,0.0661,0.0716,0.1273,0.2367
+fiqa_train,fiqa,10,qudar_simple_rrf,0.3255,0.2459,0.1844,0.1978,0.2957,0.4913
+fiqa_train,fiqa,10,qudar_simple_equal,0.333,0.2616,0.2007,0.224,0.319,0.5022
+fiqa_train,fiqa,10,qudar_confidence,0.3349,0.2633,0.2021,0.2275,0.3212,0.5045
+fiqa_train,fiqa,10,sha_os_od,0.2736,0.2178,0.166,0.1964,0.2748,0.4301
+fiqa_train,fiqa,10,shb_os_od,0.3296,0.2669,0.2075,0.2451,0.3303,0.5018
+fiqa_train,fiqa,10,dhb_os_od,0.3864,0.3251,0.2589,0.3162,0.4006,0.5765
+fiqa_train,fiqa,10,sha_os_es,0.2896,0.2258,0.172,0.1934,0.2776,0.4456
+fiqa_train,fiqa,10,shb_os_es,0.3328,0.2685,0.2081,0.2453,0.3326,0.5051
+fiqa_train,fiqa,10,dhb_os_es,0.3913,0.3293,0.2623,0.3235,0.4059,0.5805
+fiqa_train,fiqa,10,sha_od_ed,0.1674,0.1254,0.0896,0.1046,0.1662,0.2858
+fiqa_train,fiqa,10,shb_od_ed,0.1842,0.1409,0.1024,0.1222,0.1864,0.3105
+fiqa_train,fiqa,10,dhb_od_ed,0.2323,0.1837,0.1365,0.1715,0.2381,0.3856
