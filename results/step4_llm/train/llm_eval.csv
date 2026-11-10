@@ -1,0 +1,3 @@
+name,method,queries,failed,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+fiqa_train,qudar_llm,5500,0,0.3416,0.2734,0.2123,0.2462,0.3353,0.5095
+hotpotqa_train,qudar_llm,10000,0,0.677,0.6464,0.5599,0.7358,0.7975,0.8998
