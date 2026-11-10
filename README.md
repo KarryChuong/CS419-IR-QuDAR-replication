@@ -78,7 +78,7 @@ File lớn (index, shard, `retrieval_result.json`, `grid_metrics.npz`) không n�
 | [qudar-runs](https://www.kaggle.com/datasets/karrychuong/qudar-runs) | output Step 2 |
 | [qudar-grid](https://www.kaggle.com/datasets/karrychuong/qudar-grid) | output `grid_sweep.py` |
 | [qudar-llm](https://www.kaggle.com/datasets/karrychuong/qudar-llm) | điểm LLM, QuDAR-llm, DAT |
-| [qudar-llm-ablation]() | ablation |
+| [qudar-llm-ablation](https://www.kaggle.com/datasets/karrychuong/qudar-llm-ablation) | ablation |
 
 ## Cách chạy lại
 
