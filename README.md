@@ -16,7 +16,7 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 | 3 | Fusion và baseline: Static Avg/UB, RRF, Equal, Confidence, DAT | ✅ |
 | 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | ✅ |
 | 5 | Phân tích: Table 8, Figure 2–5 | ✅ |
-| 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ⏳ |
+| 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ✅ |
 | 7 | Đánh giá RAG end-to-end | ⏳ |
 | 8 | Demo | ⏳ |
 | 9 | Báo cáo | ⏳ |
@@ -63,6 +63,8 @@ docs/         findings.md: các chỗ code công bố lệch paper và kết qu�
 | `grid_sweep.py` | 3, 5 | Lưới 1.331 tổ hợp (α, β1, β2) cho từng query: Static Avg/UB 4 danh sách, cận trên theo query |
 | `llm_score.py` | 3–4 | gpt-4o-mini chấm top-1: `paper`, `code`, `paper_fixed`, `code_shuffle`, `dat` |
 | `step5_analysis.py` | 5 | Bảng so với paper, Figure 2–5, thống kê thiên lệch vị trí |
+| `step6.py` | 6 | Đặc trưng, mô hình học trọng số A/B (LightGBM), QuDAR-llm khử thiên lệch, ablation LLM, kiểm định thống kê |
+| `step6b.py` | 6 | Bản sửa duy nhất (đăng ký trước): mô hình có cổng quanh Static-train, đặc trưng không phụ thuộc thang đo, hiệu chỉnh Holm |
 
 ## Dataset trên Kaggle
 
@@ -123,6 +125,25 @@ Tóm tắt:
 ![Figure 4b](results/step5_analysis/fig4b_upper_bounds.png) 
 ![Figure 4a](results/step5_analysis/fig4a_optimal_hist.png)  
 ![Figure 5](results/step5_analysis/fig5_optimal_heatmap.png) 
+
+## Kết quả mở rộng (Step 6)
+
+Recall@10 / nDCG@10 trên tập test. Static-train = một bộ trọng số cố định chọn trên tập train (FiQA + HotpotQA). Chi tiết: [`results/step6b/`](results/step6b/), [`docs/findings.md`](docs/findings.md) mục 9–12.
+
+| Phương pháp | FiQA | SciDocs (zero-shot) | Climate-FEVER (zero-shot) | HotpotQA |
+|---|---|---|---|---|
+| QuDAR-confidence | 0.3354 / 0.2525 | 0.1907 / 0.1798 | 0.2507 / 0.2043 | 0.6853 / 0.6366 |
+| QuDAR-llm | 0.3281 / 0.2539 | 0.1899 / 0.1799 | 0.2567 / 0.2093 | 0.6704 / 0.6355 |
+| **Static-train** | **0.3555 / 0.2754** | 0.1917 / 0.1808 | 0.2473 / 0.2012 | **0.7039 / 0.6621** |
+| Direct-B (học, có LLM) | 0.3587 / 0.2803 | 0.1939 / 0.1823 | 0.2462 / 0.2026 | **0.7074 / 0.6715** |
+| Gated B (học, có LLM) | 0.3529 / 0.2850 | 0.1899 / 0.1766 | 0.2334 / 0.1894 | 0.7014 / 0.6656 |
+| Query-wise UB (oracle) | 0.4944 / 0.4321 | 0.2749 / 0.2810 | 0.3734 / 0.3471 | 0.7708 / 0.7637 |
+
+- Khi có dữ liệu train cùng miền, một bộ trọng số tĩnh chọn trên train vượt QuDAR-confidence và QuDAR-llm có ý nghĩa thống kê (FiQA, HotpotQA; Holm p < 0.05).
+- Học trọng số theo từng query chỉ thêm được một chút trên HotpotQA (Direct-B so với Static-train: nDCG +0.0095, Recall +0.0035, có ý nghĩa) và không tổng quát hóa sang SciDocs, Climate-FEVER.
+- gpt-4o-mini thiên lệch vị trí mạnh ở cả 6 run; thứ tự passage cố định chỉ có lợi trên FiQA, còn prompt của code công bố tốt hơn prompt trong paper khá nhất quán.
+
+![Thiên lệch vị trí](results/step6/fig6_position_bias.png)
 
 ## Ghi nhận
 
