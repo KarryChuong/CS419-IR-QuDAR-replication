@@ -1,0 +1,65 @@
+dataset,A,B,metric,mean(A-B),95% CI,p bootstrap,p t-test,sig (p<0.05)
+FiQA,Model A [both],QuDAR-confidence,nDCG@10,0.0264,"[0.0154, 0.0374]",0.0,0.0,*
+FiQA,Model A [both],QuDAR-confidence,Recall@10,0.017,"[0.0005, 0.0330]",0.0432,0.0419,*
+FiQA,Model A [both],QuDAR-llm,nDCG@10,0.0251,"[0.0125, 0.0377]",0.0004,0.0001,*
+FiQA,Model A [both],QuDAR-llm,Recall@10,0.0244,"[0.0071, 0.0417]",0.0082,0.0064,*
+FiQA,Model B [both],QuDAR-llm,nDCG@10,0.0321,"[0.0204, 0.0441]",0.0,0.0,*
+FiQA,Model B [both],QuDAR-llm,Recall@10,0.0234,"[0.0081, 0.0384]",0.0028,0.0025,*
+FiQA,Model B [both],Model A [both],nDCG@10,0.0071,"[-0.0016, 0.0156]",0.1122,0.1131,
+FiQA,Model B [both],Model A [both],Recall@10,-0.001,"[-0.0159, 0.0141]",0.8872,0.901,
+FiQA,Model A [both],Static-train [both],nDCG@10,0.0036,"[-0.0057, 0.0128]",0.4574,0.4499,
+FiQA,Model A [both],Static-train [both],Recall@10,-0.0031,"[-0.0170, 0.0106]",0.655,0.6589,
+FiQA,QuDAR-llm-debiased,QuDAR-llm,nDCG@10,0.0046,"[0.0008, 0.0086]",0.016,0.0241,*
+FiQA,QuDAR-llm-debiased,QuDAR-llm,Recall@10,0.0066,"[0.0009, 0.0128]",0.0188,0.0289,*
+FiQA,QuDAR-llm,QuDAR-confidence,nDCG@10,0.0014,"[-0.0079, 0.0108]",0.7628,0.7668,
+FiQA,QuDAR-llm,QuDAR-confidence,Recall@10,-0.0074,"[-0.0219, 0.0072]",0.3166,0.3081,
+FiQA,QuDAR-confidence,QuDAR-simple (Equal),nDCG@10,0.0013,"[-0.0014, 0.0041]",0.3696,0.3645,
+FiQA,QuDAR-confidence,QuDAR-simple (Equal),Recall@10,0.0021,"[-0.0033, 0.0080]",0.4718,0.462,
+SciDocs,Model A [both],QuDAR-confidence,nDCG@10,-0.0045,"[-0.0095, 0.0004]",0.0702,0.0692,
+SciDocs,Model A [both],QuDAR-confidence,Recall@10,-0.0052,"[-0.0111, 0.0008]",0.0898,0.0884,
+SciDocs,Model A [both],QuDAR-llm,nDCG@10,-0.0046,"[-0.0096, 0.0002]",0.0602,0.0673,
+SciDocs,Model A [both],QuDAR-llm,Recall@10,-0.0044,"[-0.0103, 0.0015]",0.1482,0.1527,
+SciDocs,Model B [both],QuDAR-llm,nDCG@10,-0.004,"[-0.0092, 0.0011]",0.1262,0.1346,
+SciDocs,Model B [both],QuDAR-llm,Recall@10,-0.0039,"[-0.0102, 0.0021]",0.209,0.2222,
+SciDocs,Model B [both],Model A [both],nDCG@10,0.0007,"[-0.0030, 0.0044]",0.7314,0.7282,
+SciDocs,Model B [both],Model A [both],Recall@10,0.0005,"[-0.0045, 0.0055]",0.8588,0.8457,
+SciDocs,Model A [both],Static-train [both],nDCG@10,-0.0056,"[-0.0097, -0.0016]",0.006,0.0071,*
+SciDocs,Model A [both],Static-train [both],Recall@10,-0.0062,"[-0.0115, -0.0010]",0.0176,0.0235,*
+SciDocs,QuDAR-llm-debiased,QuDAR-llm,nDCG@10,0.0003,"[-0.0012, 0.0019]",0.6566,0.6526,
+SciDocs,QuDAR-llm-debiased,QuDAR-llm,Recall@10,0.0004,"[-0.0021, 0.0030]",0.7282,0.7277,
+SciDocs,QuDAR-llm,QuDAR-confidence,nDCG@10,0.0001,"[-0.0029, 0.0032]",0.956,0.9543,
+SciDocs,QuDAR-llm,QuDAR-confidence,Recall@10,-0.0008,"[-0.0050, 0.0034]",0.7006,0.6991,
+SciDocs,QuDAR-confidence,QuDAR-simple (Equal),nDCG@10,0.0005,"[-0.0004, 0.0014]",0.307,0.3039,
+SciDocs,QuDAR-confidence,QuDAR-simple (Equal),Recall@10,0.0006,"[-0.0008, 0.0020]",0.4358,0.4057,
+Climate-FEVER,Model A [both],QuDAR-confidence,nDCG@10,-0.02,"[-0.0263, -0.0135]",0.0,0.0,*
+Climate-FEVER,Model A [both],QuDAR-confidence,Recall@10,-0.0301,"[-0.0393, -0.0207]",0.0,0.0,*
+Climate-FEVER,Model A [both],QuDAR-llm,nDCG@10,-0.025,"[-0.0320, -0.0180]",0.0,0.0,*
+Climate-FEVER,Model A [both],QuDAR-llm,Recall@10,-0.036,"[-0.0459, -0.0260]",0.0,0.0,*
+Climate-FEVER,Model B [both],QuDAR-llm,nDCG@10,-0.0215,"[-0.0283, -0.0146]",0.0,0.0,*
+Climate-FEVER,Model B [both],QuDAR-llm,Recall@10,-0.0262,"[-0.0357, -0.0167]",0.0,0.0,*
+Climate-FEVER,Model B [both],Model A [both],nDCG@10,0.0035,"[-0.0013, 0.0084]",0.1492,0.1497,
+Climate-FEVER,Model B [both],Model A [both],Recall@10,0.0098,"[0.0028, 0.0169]",0.0048,0.0065,*
+Climate-FEVER,Model A [both],Static-train [both],nDCG@10,-0.0169,"[-0.0214, -0.0123]",0.0,0.0,*
+Climate-FEVER,Model A [both],Static-train [both],Recall@10,-0.0267,"[-0.0343, -0.0193]",0.0,0.0,*
+Climate-FEVER,QuDAR-llm-debiased,QuDAR-llm,nDCG@10,-0.0004,"[-0.0022, 0.0015]",0.6818,0.6751,
+Climate-FEVER,QuDAR-llm-debiased,QuDAR-llm,Recall@10,0.0005,"[-0.0026, 0.0036]",0.718,0.7275,
+Climate-FEVER,QuDAR-llm,QuDAR-confidence,nDCG@10,0.005,"[0.0005, 0.0096]",0.0296,0.0288,*
+Climate-FEVER,QuDAR-llm,QuDAR-confidence,Recall@10,0.0059,"[-0.0003, 0.0123]",0.0618,0.0658,
+Climate-FEVER,QuDAR-confidence,QuDAR-simple (Equal),nDCG@10,-0.0005,"[-0.0015, 0.0006]",0.3918,0.3935,
+Climate-FEVER,QuDAR-confidence,QuDAR-simple (Equal),Recall@10,0.0004,"[-0.0012, 0.0019]",0.6304,0.6369,
+HotpotQA,Model A [both],QuDAR-confidence,nDCG@10,0.0232,"[0.0199, 0.0264]",0.0,0.0,*
+HotpotQA,Model A [both],QuDAR-confidence,Recall@10,0.0106,"[0.0065, 0.0146]",0.0,0.0,*
+HotpotQA,Model A [both],QuDAR-llm,nDCG@10,0.0243,"[0.0205, 0.0280]",0.0,0.0,*
+HotpotQA,Model A [both],QuDAR-llm,Recall@10,0.0255,"[0.0210, 0.0297]",0.0,0.0,*
+HotpotQA,Model B [both],QuDAR-llm,nDCG@10,0.0306,"[0.0272, 0.0341]",0.0,0.0,*
+HotpotQA,Model B [both],QuDAR-llm,Recall@10,0.0286,"[0.0244, 0.0327]",0.0,0.0,*
+HotpotQA,Model B [both],Model A [both],nDCG@10,0.0064,"[0.0042, 0.0086]",0.0,0.0,*
+HotpotQA,Model B [both],Model A [both],Recall@10,0.0031,"[0.0001, 0.0061]",0.0446,0.0445,*
+HotpotQA,Model A [both],Static-train [both],nDCG@10,-0.0023,"[-0.0046, -0.0000]",0.0456,0.0459,*
+HotpotQA,Model A [both],Static-train [both],Recall@10,-0.008,"[-0.0113, -0.0048]",0.0,0.0,*
+HotpotQA,QuDAR-llm-debiased,QuDAR-llm,nDCG@10,0.0016,"[0.0005, 0.0027]",0.0044,0.0044,*
+HotpotQA,QuDAR-llm-debiased,QuDAR-llm,Recall@10,0.001,"[-0.0009, 0.0028]",0.3048,0.2852,
+HotpotQA,QuDAR-llm,QuDAR-confidence,nDCG@10,-0.0011,"[-0.0045, 0.0022]",0.53,0.5199,
+HotpotQA,QuDAR-llm,QuDAR-confidence,Recall@10,-0.0149,"[-0.0187, -0.0109]",0.0,0.0,*
+HotpotQA,QuDAR-confidence,QuDAR-simple (Equal),nDCG@10,0.0048,"[0.0039, 0.0058]",0.0,0.0,*
+HotpotQA,QuDAR-confidence,QuDAR-simple (Equal),Recall@10,0.0026,"[0.0013, 0.0039]",0.0002,0.0001,*

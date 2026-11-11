@@ -1,0 +1,13 @@
+dataset,,no LLM,LLM
+FiQA,Rule (paper),0.3354,0.3281
+FiQA,Rule + debias (ours),,0.3347
+FiQA,Learned (ours),0.3524,0.3515
+SciDocs,Rule (paper),0.1907,0.1899
+SciDocs,Rule + debias (ours),,0.1903
+SciDocs,Learned (ours),0.1855,0.186
+Climate-FEVER,Rule (paper),0.2507,0.2567
+Climate-FEVER,Rule + debias (ours),,0.2572
+Climate-FEVER,Learned (ours),0.2207,0.2305
+HotpotQA,Rule (paper),0.6853,0.6704
+HotpotQA,Rule + debias (ours),,0.6714
+HotpotQA,Learned (ours),0.6959,0.699

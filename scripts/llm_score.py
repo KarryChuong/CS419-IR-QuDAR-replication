@@ -173,6 +173,8 @@ def main() -> None:
     caller = Caller(args.model, args.dry_run)
     for name in args.names:
         dataset, split = name.rsplit("_", 1)
+        # results on a subset get their own name, so they never overwrite full-set rows
+        eval_name = f"{name}_first{args.max_queries}" if args.max_queries else name
         rr = json.loads((Path(args.runs) / name / "retrieval_result.json").read_text())
         qids, qtexts, qrels = load_split(Path(args.data_root) / dataset, split, None)
         query_of = dict(zip(qids, qtexts))
@@ -215,21 +217,22 @@ def main() -> None:
         if args.mode != "dat":
             rows = [{"qid": q, "original_sparse": done[q]["scores"]["OS"], "original_dense": done[q]["scores"]["OD"],
                      "expanded_sparse": done[q]["scores"]["ES"], "expanded_dense": done[q]["scores"]["ED"]} for q in done]
-            pd.DataFrame(rows).to_csv(out / f"llm_scores_{args.mode}_{name}.csv", index=False)
+            pd.DataFrame(rows).to_csv(out / f"llm_scores_{args.mode}_{eval_name}.csv", index=False)
             lookup = build_llm_weight_lookup(rows, tau=args.llm_tau)
             method = {"paper": "qudar_llm", "code": "qudar_llm_codeprompt", "paper_fixed": "qudar_llm_paper_fixed",
                       "code_shuffle": "qudar_llm_code_shuffle"}[args.mode]
         else:
             rows = [{"qid": q, "dense": done[q]["scores"]["OD"], "bm25": done[q]["scores"]["OS"],
                      "alpha": dat_alpha(done[q]["scores"]["OD"], done[q]["scores"]["OS"])} for q in done]
-            pd.DataFrame(rows).to_csv(out / f"dat_scores_{name}.csv", index=False)
+            pd.DataFrame(rows).to_csv(out / f"dat_scores_{eval_name}.csv", index=False)
             lookup = {r["qid"]: (1 - r["alpha"], r["alpha"], 0.0, 0.0) for r in rows}  # OS, OD, ES, ED
             lookup.update({q: (0.5, 0.5, 0.0, 0.0) for q in failed})
             method = "dat"
         run, meta = build_llm_run(rr, lookup)
-        summary, _ = evaluate_run(qrels, run, at_k=10)
-        json.dump(meta, open(out / f"weights_{method}_{name}.json", "w"))
-        row = {"name": name, "method": method, "queries": len(qids), "failed": len(failed), **summary}
+        summary, per_query = evaluate_run(qrels, run, at_k=10)
+        json.dump(per_query, open(out / f"perquery_{method}_{eval_name}.json", "w"))
+        json.dump(meta, open(out / f"weights_{method}_{eval_name}.json", "w"))
+        row = {"name": eval_name, "method": method, "queries": len(qids), "failed": len(failed), **summary}
         ev = out / "llm_eval.csv"
         pd.DataFrame([row]).to_csv(ev, mode="a", header=not ev.exists(), index=False)
         print(pd.DataFrame([row])[["name", "method", "Recall@10", "nDCG@10", "Precision@1"]].to_string(index=False), flush=True)
