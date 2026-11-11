@@ -106,3 +106,43 @@ Repo không có DAT. Prompt được dựng lại theo mô tả Phụ lục A c�
 - Kaggle/Colab cài sẵn JAX; bm25s tự dùng JAX cho top-k, làm JAX chiếm 75% bộ nhớ GPU và Contriever bị hết bộ nhớ. Đã ép bm25s dùng numpy và đặt `JAX_PLATFORMS=cpu`.
 - `run_retrieval.py` kiểm tra mã tài liệu của shard so với corpus trước khi tìm dense, sau một lần chạy Climate-FEVER đọc nhầm shard HotpotQA (OD, ED bằng 0).
 - Chỉ số tính bằng numpy trong `grid_sweep.py` trùng với `qudar.fusion` + `pytrec_eval` (sai khác dưới 1e-4, do làm tròn).
+
+## 9. Ablation QuDAR-llm 2×2 trên 4 dataset (Step 6.1)
+
+Recall@10; HotpotQA dùng 1.500 query đầu.
+
+| Dataset | Prompt paper + xáo trộn | Prompt paper + cố định | Prompt code + xáo trộn | Prompt code + cố định |
+|---|---|---|---|---|
+| FiQA | 0.3281 | 0.3423 | 0.3386 | 0.3522 |
+| SciDocs | 0.1899 | 0.1906 | 0.1920 | 0.1889 |
+| Climate-FEVER | 0.2567 | 0.2552 | 0.2609 | 0.2591 |
+| HotpotQA | 0.6737 | 0.6823 | 0.6927 | 0.6883 |
+
+- Thứ tự cố định có lợi có ý nghĩa ở FiQA (cả hai prompt) và HotpotQA (prompt paper); không có ý nghĩa ở Climate-FEVER; kém hơn ở SciDocs (prompt code). Hiệu ứng phụ thuộc dataset, nên kết quả QuDAR-llm cao trên FiQA của paper có thể gắn với đặc thù của FiQA.
+- Giả thuyết "thiên lệch vị trí trùng với tín hiệu mạnh" không được xác nhận ở Climate-FEVER (ES mạnh nhất, đứng đầu khi cố định, nhưng không có lợi).
+- Prompt code tốt hơn prompt paper có ý nghĩa ở 5/8 ô theo nDCG@10, rõ nhất ở HotpotQA (+0.019): cách diễn đạt prompt ảnh hưởng nhất quán hơn thứ tự passage.
+- Trong bản tái hiện, QuDAR-llm không vượt QuDAR-confidence ở FiQA và SciDocs, và kém hơn về Recall ở HotpotQA (−0.015, có ý nghĩa), khác với paper.
+
+## 10. Khử thiên lệch vị trí
+
+Độ lệch theo vị trí được ước lượng trên tập train (chế độ paper) rồi trừ khỏi điểm tập test trước khi tính trọng số. Kết quả tốt hơn hoặc ngang bằng ở cả 4 bộ, nhưng nhỏ: sau hiệu chỉnh Holm chỉ còn HotpotQA nDCG@10 +0.0016 có ý nghĩa; FiQA +0.0066 Recall@10 (p = 0.019 trước hiệu chỉnh). Khử lệch không đạt mức của thứ tự cố định trên FiQA (0.3347 so với 0.3423).
+
+## 11. Một trọng số tĩnh chọn trên tập train vượt QuDAR
+
+Paper so QuDAR với Static Avg và Static UB (chọn trên tập test, không dùng được trong thực tế), nhưng không so với một trọng số tĩnh chọn trên dữ liệu train. Static-train (điểm lưới có nDCG@10 trung bình cao nhất trên FiQA train + HotpotQA train):
+
+| | FiQA | HotpotQA |
+|---|---|---|
+| Static-train − QuDAR-confidence | R +0.020, nDCG +0.023 * | R +0.019, nDCG +0.026 * |
+| Static-train − QuDAR-llm | R +0.028, nDCG +0.022 * | R +0.034, nDCG +0.027 * |
+
+\* Holm p < 0.05. Trên SciDocs không khác biệt; trên Climate-FEVER, Static-train kém QuDAR-llm (nDCG −0.008, có ý nghĩa). Kết luận: luật theo query của QuDAR có giá trị khi không có dữ liệu train cùng miền; khi có, tinh chỉnh một trọng số tĩnh đơn giản và tốt hơn.
+
+## 12. Học trọng số theo từng query (Step 6, 6.3b)
+
+- **Thiết kế:** LightGBM dự đoán nDCG@10 (đã trừ trung bình theo query) của từng điểm lưới (α, β1, β2) bước 0.2 từ đặc trưng của 4 danh sách và của query; Model A không dùng LLM, Model B thêm 4 điểm LLM và vị trí của chúng. Direct-A/B hồi quy thẳng (α, β1, β2). Bản 6.3b (một lần sửa, thiết kế trước): mô hình có cổng chỉ rời Static-train khi lợi ích dự đoán vượt ngưỡng chọn trên 20% validation tách từ train; bộ đặc trưng không phụ thuộc thang đo (A-sf, B-sf); p-value hiệu chỉnh Holm.
+- **Cùng miền:** mô hình học vượt QuDAR-confidence và QuDAR-llm có ý nghĩa, nhưng phần lớn mức tăng đã có ở Static-train. So với Static-train, chỉ HotpotQA có cải thiện có ý nghĩa: Direct-B nDCG +0.0095 và Recall +0.0035, Gated B nDCG +0.0035. FiQA không có khác biệt có ý nghĩa sau Holm.
+- **Zero-shot:** mọi mô hình học ngang hoặc kém Static-train; ở Climate-FEVER kém có ý nghĩa (Gated A nDCG −0.011). Đặc trưng không phụ thuộc thang đo giảm thiệt hại (Gated B-sf −0.005) nhưng không khắc phục được. Ngoài miền, nhiều query vượt ngưỡng hơn (Gated A-sf: 83% ở SciDocs so với 55% ở FiQA), tức lợi ích dự đoán bị thổi phồng khi dữ liệu khác phân phối.
+- **Validation:** cổng chỉ cải thiện nDCG@10 validation 0.001–0.004 so với Static-train; với mô hình scale-free huấn luyện trên FiQA, validation chọn ngưỡng vô cùng (không rời trọng số tĩnh).
+- **Feature importance:** đặc trưng quan trọng nhất là chính trọng số được chấm (w_OS khoảng 35% gain); đặc trưng của query hàng đầu là độ đồng thuận giữa các danh sách (Jaccard top-10 OS–ES, OS top-1 có trong danh sách khác).
+- **Kết luận:** khoảng cách tới Query-wise UB (ví dụ FiQA 0.4944) gần như chưa được khai thác bằng đặc trưng rẻ; đây là giới hạn chính và hướng mở cho nghiên cứu tiếp.

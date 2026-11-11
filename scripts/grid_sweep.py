@@ -158,12 +158,16 @@ def main() -> None:
             name_map = {"os": "os", "od": "od", "es": "es", "ed": "ed", "qudar_simple_equal": "qudar_simple_equal"}
             chk = summary[summary.axis == "check"]
             for _, r in chk.iterrows():
+                if name_map[r.method] not in ref.index:
+                    continue
                 ref_row = ref.loc[name_map[r.method]]
                 diff = max(abs(r[m] - ref_row[m]) for m in METRICS)
                 summary.loc[(summary.axis == "check") & (summary.method == r.method), "max |diff| vs eval_results"] = round(diff, 4)
             for axis, pre in [("retriever_type (OS-OD)", "os_od"), ("query_format_sparse (OS-ES)", "os_es"),
                               ("query_format_dense (OD-ED)", "od_ed")]:
                 for label, m in [("Static Avg", f"sha_{pre}"), ("Static UB", f"shb_{pre}")]:
+                    if m not in ref.index:
+                        continue
                     r = summary[(summary.axis == axis) & (summary.method == label)].iloc[0]
                     diff = max(abs(r[x] - ref.loc[m][x]) for x in METRICS)
                     summary.loc[(summary.axis == axis) & (summary.method == label), "max |diff| vs eval_results"] = round(diff, 4)
