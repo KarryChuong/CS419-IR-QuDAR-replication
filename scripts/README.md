@@ -1,6 +1,6 @@
 # qudar-patches
 
-Bổ sung cho repo kaist-dmlab/QuDAR (đồ án CS419). Upload cả thư mục này thành Kaggle Dataset `qudar-patches`.
+Bổ sung cho repo kaist-dmlab/QuDAR (đồ án CS419). Thư mục này đã được biến đổi thành Kaggle Dataset `qudar-patches`.
 
 | File | Dùng ở | Việc |
 |---|---|---|
@@ -12,6 +12,8 @@ Bổ sung cho repo kaist-dmlab/QuDAR (đồ án CS419). Upload cả thư mục n
 | `grid_sweep.py` | Step 3 + 5 | Lưới trọng số 2 chiều (α, β1, β2) cho từng query: Static Avg/UB 4 danh sách, cận trên theo query, nhãn tối ưu cho hướng (c) |
 | `llm_score.py` | Step 4 | gpt-4o-mini chấm top-1: `paper` (Prompt 1 + xáo trộn), `code` (bản công bố), `dat` (baseline DAT) |
 | `step6.py` | Step 6 | Đặc trưng, mô hình học trọng số A/B (LightGBM), QuDAR-llm khử thiên lệch, bảng ablation LLM, kiểm định thống kê |
+| `step6b.py` | Step 6 | Mô hình có cổng quanh Static-train, đặc trưng không phụ thuộc thang đo, hiệu chỉnh Holm |
+| `rag_eval.py` | Step 7 | RAG end-to-end: Qwen2.5-7B sinh câu trả lời từ top-k passage và tự chấm theo QA-Eval (Table 3) |
 | `expand_queries.py` | Step 1C | Sinh query mở rộng bằng LLaMA 3.1-8B-Instruct, prompt Phụ lục G, output `{qid: passage}` |
 
 Đã kiểm tra (CPU, mô hình nhỏ giả lập): `encode_shards.py` + `build_index_from_shards.py` cho top-50 trùng 100% và điểm giống hệt `qudar.build_index`.

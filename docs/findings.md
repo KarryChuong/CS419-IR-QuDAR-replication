@@ -146,3 +146,13 @@ Paper so QuDAR với Static Avg và Static UB (chọn trên tập test, không d
 - **Validation:** cổng chỉ cải thiện nDCG@10 validation 0.001–0.004 so với Static-train; với mô hình scale-free huấn luyện trên FiQA, validation chọn ngưỡng vô cùng (không rời trọng số tĩnh).
 - **Feature importance:** đặc trưng quan trọng nhất là chính trọng số được chấm (w_OS khoảng 35% gain); đặc trưng của query hàng đầu là độ đồng thuận giữa các danh sách (Jaccard top-10 OS–ES, OS top-1 có trong danh sách khác).
 - **Kết luận:** khoảng cách tới Query-wise UB (ví dụ FiQA 0.4944) gần như chưa được khai thác bằng đặc trưng rẻ; đây là giới hạn chính và hướng mở cho nghiên cứu tiếp.
+
+## 13. Đánh giá RAG end-to-end (Step 7)
+
+500 query ngẫu nhiên mỗi bộ (seed 0); Qwen2.5-7B-Instruct sinh câu trả lời từ top-5 passage (tối đa 180 từ mỗi passage, giải mã tham lam) và tự chấm Yes/No theo prompt QA-Eval (Wang et al., 2023a). Đáp án chuẩn: HotpotQA `metadata.answer`; FiQA tối đa 3 passage liên quan trong qrels. Prompt chấm, số passage và cách chọn 500 query không được paper công bố, nên điểm Gen tuyệt đối cao hơn paper (FiQA khoảng 0.5 so với 0.14–0.18) và chỉ so sánh thứ tự giữa các phương pháp.
+
+- Recall@10 và Gen tương quan mạnh trên 13 phương pháp (Pearson 0.91 FiQA, 0.98 HotpotQA).
+- HotpotQA (Holm p < 0.05): QuDAR-confidence hơn OS +0.078 và hơn Retriever-Type Fusion +0.060; QuDAR-llm hơn OS +0.092; QuDAR-llm và QuDAR-confidence không khác biệt. Khớp kết luận của paper (+17% so với retriever đơn tốt nhất, paper khoảng 20%).
+- FiQA: không có khác biệt có ý nghĩa giữa các phương pháp thực tế (0.49–0.55); chỉ các phương pháp thuần dense thấp rõ (0.36–0.42).
+- Static-train và Model B không khác biệt có ý nghĩa so với QuDAR sau hiệu chỉnh Holm.
+- Query-wise UB đạt Gen 0.600 / 0.588, so với khoảng 0.50–0.53: khoảng trống của retrieval cũng là khoảng trống của RAG.
