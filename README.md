@@ -17,8 +17,8 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 | 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | ✅ |
 | 5 | Phân tích: Table 8, Figure 2–5 | ✅ |
 | 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ✅ |
-| 7 | Đánh giá RAG end-to-end | ✅ |
-| 8 | Demo | ⏳ |
+| 7 | Đánh giá RAG end-to-end (Table 3) | ✅ |
+| 8 | Demo chạy trên laptop (FiQA) | ✅ |
 | 9 | Báo cáo | ⏳ |
 
 ## Quy trình truy xuất trong đồ án
@@ -41,6 +41,8 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 | Dense | `facebook/contriever` |
 | Mở rộng query | `meta-llama/Llama-3.1-8B-Instruct`, prompt Phụ lục G, giải mã tham lam (greedy), tối đa 256 token |
 | LLM chấm điểm | `gpt-4o-mini`, temperature 0 |
+| Học trọng số (Step 6) | LightGBM |
+| RAG (Step 7) | `Qwen/Qwen2.5-7B-Instruct` sinh câu trả lời và tự chấm theo QA-Eval |
 | Chỉ số | Recall@10, nDCG@10, Precision@1 (pytrec_eval) |
 
 ## Cấu trúc repo
@@ -49,7 +51,7 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 scripts/      phần bổ sung cho pipeline của tác giả (xem bảng dưới)
 notebooks/    notebook Kaggle/Colab, đánh số theo thứ tự chạy
 results/      kết quả nhỏ: CSV đánh giá, điểm LLM, bảng và hình cuối
-logs/         log Kaggle (mốc thời gian từng bước)
+demo/         demo Gradio chạy trên laptop (xem demo/README.md)
 docs/         findings.md: các chỗ code công bố lệch paper và kết quả ablation
 ```
 
@@ -65,6 +67,8 @@ docs/         findings.md: các chỗ code công bố lệch paper và kết qu�
 | `step5_analysis.py` | 5 | Bảng so với paper, Figure 2–5, thống kê thiên lệch vị trí |
 | `step6.py` | 6 | Đặc trưng, mô hình học trọng số A/B (LightGBM), QuDAR-llm khử thiên lệch, ablation LLM, kiểm định thống kê |
 | `step6b.py` | 6 | Bản sửa duy nhất (đăng ký trước): mô hình có cổng quanh Static-train, đặc trưng không phụ thuộc thang đo, hiệu chỉnh Holm |
+| `rag_eval.py` | 7 | RAG end-to-end: Qwen2.5-7B sinh câu trả lời từ top-5 và tự chấm theo QA-Eval, kiểm định cặp |
+| `pack_demo_data.py` | 8 | Gom dữ liệu FiQA, embedding, danh sách Step 2, điểm LLM, mô hình Step 6 thành `demo_data.zip` cho demo |
 
 ## Dataset trên Kaggle
 
@@ -80,22 +84,27 @@ File lớn (index, shard, `retrieval_result.json`, `grid_metrics.npz`) không n�
 | [qudar-runs](https://www.kaggle.com/datasets/karrychuong/qudar-runs) | output Step 2 |
 | [qudar-grid](https://www.kaggle.com/datasets/karrychuong/qudar-grid) | output `grid_sweep.py` |
 | [qudar-llm](https://www.kaggle.com/datasets/karrychuong/qudar-llm) | điểm LLM, QuDAR-llm, DAT |
-| [qudar-llm-ablation](https://www.kaggle.com/datasets/karrychuong/qudar-llm-ablation) | ablation |
+| [qudar-llm-ablation](https://www.kaggle.com/datasets/karrychuong/qudar-llm-ablation) | ablation prompt × thứ tự trên 4 bộ (Step 6.1) |
+| [qudar-step6](https://www.kaggle.com/datasets/karrychuong/qudar-step6) | output `step6.py`: mô hình LightGBM, trọng số đã chọn, độ lệch vị trí |
 
 ## Cách chạy lại
 
-Mọi notebook chạy trên Kaggle (Colab với `01a`), cần bật Internet. Secret: `HF_TOKEN` (LLaMA), `OPENAI_API_KEY` (Step 4).
+Mọi notebook chạy trên Kaggle (Colab với `01a`), cần bật Internet. Secret: `HF_TOKEN` (LLaMA), `OPENAI_API_KEY` (Step 4, 6.1).
 
-| Notebook | Máy | Thời gian | Ghi chú |
-|---|---|---|---|
-| `00_prepare_data` | CPU | khoảng 15 phút | tải BEIR, tạo `qudar-beir-data` |
-| `01a_bm25_dense_check_colab` | Colab T4 | khoảng 30 phút | index FiQA, SciDocs; chẩn đoán BM25 / OD / ED |
-| `01b_encode_climate-fever`, `01b_encode_hotpotqa` | T4 ×2 | khoảng 2,6 / 2 giờ | chạy song song trên 2 tài khoản |
-| `01c_query_expansion_test`, `01c_query_expansion_train` | T4 ×2 | vài giờ | vLLM, LLaMA 3.1-8B-Instruct fp16 |
-| `02_retrieval_*` | T4 ×1 | 15 phút / 30 phút / 3 giờ | FiQA + SciDocs / Climate-FEVER / HotpotQA |
-| `03_grid_sweep` | CPU | khoảng 50 phút | |
-| `04_llm_scoring_test`, `04_llm_scoring_train`, `04_llm_ablation_fiqa` | CPU | khoảng 2 / 1,5 giờ / 10 phút | tổng chi phí OpenAI khoảng 5 USD |
-| `05_analysis` | CPU | khoảng 5 phút | |
+| Notebook | Máy | Ghi chú |
+|---|---|---|
+| `00_prepare_data` | CPU | tải BEIR, tạo `qudar-beir-data` |
+| `01a_bm25_dense_check_colab` | Colab T4 | index FiQA, SciDocs; chẩn đoán BM25 / OD / ED |
+| `01b_encode_climate-fever`, `01b_encode_hotpotqa` | T4 ×2 | chạy song song trên 2 tài khoản |
+| `01c_query_expansion_test`, `01c_query_expansion_train` | T4 ×2 | vLLM, LLaMA 3.1-8B-Instruct fp16 |
+| `02_retrieval_*` | T4 ×1 | FiQA + SciDocs / Climate-FEVER / HotpotQA |
+| `03_grid_sweep` | CPU |  |
+| `04_llm_scoring_test`, `04_llm_scoring_train`, `04_llm_ablation_fiqa` | CPU | tổng chi phí OpenAI khoảng 5 USD |
+| `05_analysis` | CPU | |
+| `06a_llm_ablation_3datasets` | CPU | ablation 2×2 trên SciDocs, Climate-FEVER, HotpotQA (1.500 query) |
+| `06b_step6_learned_weighting`, `06c_step6b_gated_scalefree` | CPU | học trọng số, khử thiên lệch, kiểm định |
+| `07_rag_eval` | T4 ×2 | vLLM, Qwen2.5-7B-Instruct, 500 query × 2 bộ × 13 phương pháp |
+| `08_pack_demo_data` | CPU | tạo `demo_data.zip` cho demo |
 
 ## Kết quả chính
 
@@ -144,6 +153,28 @@ Recall@10 / nDCG@10 trên tập test. Static-train = một bộ trọng số c�
 - gpt-4o-mini thiên lệch vị trí mạnh ở cả 6 run; thứ tự passage cố định chỉ có lợi trên FiQA, còn prompt của code công bố tốt hơn prompt trong paper khá nhất quán.
 
 ![Thiên lệch vị trí](results/step6/fig6_position_bias.png)
+
+## Đánh giá RAG (Step 7)
+
+Gen. = tỷ lệ câu trả lời đúng của Qwen2.5-7B-Instruct trên 500 query ngẫu nhiên mỗi bộ, khi đưa top-5 của từng phương pháp. Prompt chấm và cách chọn query của paper không được công bố nên **chỉ so thứ tự giữa các phương pháp**, không so số tuyệt đối với paper. Bảng đầy đủ: [`results/step7/`](results/step7/), [`docs/findings.md`](docs/findings.md) mục 13.
+
+| Phương pháp | FiQA Gen. | HotpotQA Gen. |
+|---|---|---|
+| OS | 0.508 | 0.454 |
+| QuDAR-confidence | 0.494 | 0.532 |
+| QuDAR-llm | 0.508 | 0.546 |
+| Static-train | 0.534 | 0.540 |
+| Model B (học, có LLM) | 0.552 | 0.508 |
+| Query-wise UB (oracle) | 0.600 | 0.588 |
+
+- Recall@10 và Gen. tương quan mạnh trên 13 phương pháp (Pearson 0.91 FiQA, 0.98 HotpotQA).
+- HotpotQA tái hiện kết luận của paper: QuDAR hơn retriever đơn tốt nhất +17% và hơn trộn một chiều +13% (Holm p < 0.05). FiQA không có khác biệt có ý nghĩa giữa các phương pháp thực tế.
+
+## Demo (Step 8)
+
+Trang Gradio chạy trên laptop (CPU) cho FiQA: chọn câu hỏi test hoặc tự nhập, xem 4 danh sách, trọng số mà 16 phương pháp gán, kết quả sau khi trộn, thời gian từng khâu và câu trả lời RAG. Câu hỏi test chạy hoàn toàn offline. Hướng dẫn cài: [`demo/README.md`](demo/README.md).
+
+`demo/selftest.py` truy xuất trực tiếp trên laptop toàn bộ 648 query test và khớp với Step 2 và Step 6: top-10 trùng 10/10 ở OS, OD, ES và 9,96/10 ở ED; Recall@10 / nDCG@10 của mọi phương pháp trùng đến 4 chữ số; Model A, B chọn đúng điểm lưới như Step 6 ở 648/648 query ([`results/step8/selftest.csv`](results/step8/selftest.csv)).
 
 ## Ghi nhận
 

@@ -1,0 +1,67 @@
+{
+ "dataset": "fiqa",
+ "split": "test",
+ "sources": {
+  "expansions": "/kaggle/input/datasets/karrychuong/qudar-expansions/query_expansion_for_test/expansions/expanded_queries_fiqa_test_expansion.json",
+  "llm_scores": "/kaggle/input/datasets/karrychuong/qudar-llm/test/llm_scores_paper_fiqa_test.csv",
+  "model_A_both.txt": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/model_A_both.txt",
+  "model_B_both.txt": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/model_B_both.txt",
+  "model_A_features.json": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/model_A_features.json",
+  "model_B_features.json": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/model_B_features.json",
+  "position_bias_train.json": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/position_bias_train.json",
+  "chosen_weights_fiqa_test.csv": "/kaggle/input/datasets/karrychuong/qudar-step6/step6/chosen_weights_fiqa_test.csv",
+  "cached_runs": "/kaggle/input/datasets/karrychuong/qudar-runs/runs/fiqa_test/retrieval_result.json",
+  "dense": "/kaggle/input/datasets/karrychuong/qudar-index-small/indexes/fiqa/contriever/index.faiss"
+ },
+ "n_docs": 57638,
+ "n_queries": 648,
+ "position_bias": {
+  "1": 0.5406935483870967,
+  "2": 0.043725806451612836,
+  "3": -0.11504838709677445,
+  "4": -0.46937096774193554
+ },
+ "static_train": {
+  "grid_index": 522,
+  "alpha_beta": [
+   0.4,
+   0.3,
+   0.5
+  ],
+  "weights": [
+   0.42,
+   0.2,
+   0.18,
+   0.2
+  ]
+ },
+ "retriever_type_fusion": {
+  "grid_index": 363,
+  "alpha_beta": [
+   0.3,
+   0.0,
+   0.0
+  ],
+  "weights": [
+   0.7,
+   0.3,
+   0.0,
+   0.0
+  ]
+ },
+ "query_format_fusion": {
+  "grid_index": 1213,
+  "alpha_beta": [
+   1.0,
+   0.0,
+   0.3
+  ],
+  "weights": [
+   0.0,
+   0.7,
+   0.0,
+   0.3
+  ]
+ },
+ "dense_dim": 768
+}
