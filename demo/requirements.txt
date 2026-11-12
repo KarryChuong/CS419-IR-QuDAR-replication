@@ -1,0 +1,9 @@
+# Cài torch bản CPU trước (xem README), rồi: pip install -r requirements.txt
+gradio>=6.0,<7
+numpy
+pandas
+bm25s>=0.2.6
+PyStemmer
+lightgbm
+transformers
+openai>=1.40

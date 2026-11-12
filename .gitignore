@@ -11,3 +11,6 @@ retrieval_result.json
 __pycache__/
 .ipynb_checkpoints/
 .env
+demo/demo_data/
+demo/.env
+demo/.venv/

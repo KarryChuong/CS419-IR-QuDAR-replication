@@ -1,6 +1,6 @@
 # Phát hiện khi tái hiện QuDAR
 
-Ghi lại những chỗ code công bố (`kaist-dmlab/QuDAR`) khác mô tả trong paper, các thí nghiệm đã chạy để kiểm chứng, và quyết định của đồ án. Mọi số liệu là trên tập test, dạng **Recall@10 / nDCG@10 / P@1** nếu không ghi khác.
+Ghi lại những chỗ code công bố (`kaist-dmlab/QuDAR`) khác mô tả trong paper, các thí nghiệm đã chạy để kiểm chứng, quyết định của đồ án, và kết quả các phần mở rộng (mục 9–14). Mọi số liệu là trên tập test, dạng **Recall@10 / nDCG@10 / P@1** nếu không ghi khác.
 
 ## Tóm tắt
 
@@ -156,3 +156,18 @@ Paper so QuDAR với Static Avg và Static UB (chọn trên tập test, không d
 - FiQA: không có khác biệt có ý nghĩa giữa các phương pháp thực tế (0.49–0.55); chỉ các phương pháp thuần dense thấp rõ (0.36–0.42).
 - Static-train và Model B không khác biệt có ý nghĩa so với QuDAR sau hiệu chỉnh Holm.
 - Query-wise UB đạt Gen 0.600 / 0.588, so với khoảng 0.50–0.53: khoảng trống của retrieval cũng là khoảng trống của RAG.
+
+## 14. Demo trên laptop tái lập đúng thí nghiệm (Step 8)
+
+Demo (`demo/`) chạy lại toàn bộ pipeline cho FiQA trên CPU của laptop: bm25s dựng lại chỉ mục từ corpus, Contriever encode query, tìm dense bằng tích vô hướng trên ma trận embedding lấy từ FAISS index của Step 1, rồi tính trọng số của mọi phương pháp bằng cùng công thức. `demo/selftest.py` chạy 648 query test (query mở rộng của Step 1, điểm LLM của Step 4) theo hai cách, truy xuất trực tiếp và dùng danh sách đã lưu của Step 2:
+
+| | Kết quả |
+|---|---|
+| Top-10 trùng với Step 2 (trung bình mỗi query) | OS 10/10, OD 10/10, ES 10/10, ED 9,96/10 |
+| Model A / Model B chọn cùng điểm lưới như Step 6 | 648/648, 648/648 |
+| Recall@10 / nDCG@10 của 13 phương pháp, trực tiếp so với đã lưu | trùng đến 4 chữ số |
+| Thời gian | 385 giây cho 648 query × 2 cách (CPU laptop) |
+
+Một số giá trị đối chiếu (Recall@10 / nDCG@10): QuDAR-confidence 0.3354 / 0.2525 và QuDAR-llm 0.3281 / 0.2539 (trùng Step 4–5), QuDAR-llm khử thiên lệch 0.3347 / 0.2585 (trùng mục 10), Model A 0.3524 / 0.2789, Model B 0.3515 / 0.2860, Query-wise UB 0.4944 / 0.4320. Static-train cho 0.3556 so với 0.3555 trong bảng Step 6; mức chênh 0.0001 nhiều khả năng do hai đoạn code xếp các tài liệu hòa điểm theo thứ tự khác nhau. Vài tài liệu lệch ở ED nhiều khả năng cũng do hòa điểm (tích vô hướng tính lại trên CPU có thể đổi thứ tự hai tài liệu điểm gần bằng nhau so với lần tìm ở Step 2), và không làm đổi chỉ số trung bình.
+
+Kết luận: phần xếp hạng của đồ án là tất định và tái lập được trên máy khác với cùng dữ liệu đầu vào. Phần không tất định nằm ở LLM: query mở rộng sinh trực tiếp trong demo (gpt-4o-mini, hoặc LLaMA 4-bit qua Ollama) khác cấu hình của Step 1, nên câu tự nhập không có số đối chiếu.
