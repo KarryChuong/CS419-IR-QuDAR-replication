@@ -17,7 +17,7 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 | 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | ✅ |
 | 5 | Phân tích: Table 8, Figure 2–5 | ✅ |
 | 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ✅ |
-| 7 | Đánh giá RAG end-to-end | ⏳ |
+| 7 | Đánh giá RAG end-to-end | ✅ |
 | 8 | Demo | ⏳ |
 | 9 | Báo cáo | ⏳ |
 
