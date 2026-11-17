@@ -177,7 +177,7 @@ Trang Gradio chạy trên laptop (CPU) cho FiQA: chọn câu hỏi test hoặc t
 `demo/selftest.py` truy xuất trực tiếp trên laptop toàn bộ 648 query test và khớp với Step 2 và Step 6: top-10 trùng 10/10 ở OS, OD, ES và 9,96/10 ở ED; Recall@10 / nDCG@10 của mọi phương pháp trùng đến 4 chữ số; Model A, B chọn đúng điểm lưới như Step 6 ở 648/648 query ([`results/step8/selftest.csv`](results/step8/selftest.csv)).
 
 ## Báo cáo (Step 9)
-Chi tiết báo cáo bên trong [`report\CS419.R11_QuDAR.pdf`](report\CS419.R11_QuDAR.pdf)
+Chi tiết báo cáo bên trong [`report\CS419.R11_QuDAR.pdf`](report\CS419.R11_QuDAR.pdf) và toàn bộ mã nguồn của báo cáo (nằm cùng thư mục) được viết bằng công cụ Typst.
 
 ## Ghi nhận
 
