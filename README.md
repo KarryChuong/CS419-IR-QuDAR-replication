@@ -8,17 +8,17 @@ Tái hiện và mở rộng bài báo **QuDAR: Query-Wise Dual-Perspective Adapt
 
 ## Trạng thái
 
-| Step | Nội dung | Trạng thái |
-|---|---|---|
-| 0 | Chuẩn bị dữ liệu, môi trường | ✅ |
-| 1 | BM25 (bm25s), encode Contriever, sinh query mở rộng bằng LLaMA 3.1-8B-Instruct | ✅ |
-| 2 | 4 danh sách truy xuất OS / OD / ES / ED (top-1000) | ✅ |
-| 3 | Fusion và baseline: Static Avg/UB, RRF, Equal, Confidence, DAT | ✅ |
-| 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | ✅ |
-| 5 | Phân tích: Table 8, Figure 2–5 | ✅ |
-| 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ✅ |
-| 7 | Đánh giá RAG end-to-end (Table 3) | ✅ |
-| 8 | Demo chạy trên laptop (FiQA) | ✅ |
+| Step | Nội dung |
+|---|---|
+| 0 | Chuẩn bị dữ liệu, môi trường |
+| 1 | BM25 (bm25s), encode Contriever, sinh query mở rộng bằng LLaMA 3.1-8B-Instruct |
+| 2 | 4 danh sách truy xuất OS / OD / ES / ED (top-1000) |
+| 3 | Fusion và baseline: Static Avg/UB, RRF, Equal, Confidence, DAT | 
+| 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | 
+| 5 | Phân tích: Table 8, Figure 2–5 | 
+| 6 | Mở rộng: học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | 
+| 7 | Đánh giá RAG end-to-end (Table 3) | 
+| 8 | Demo chạy trên laptop (FiQA) | 
 | 9 | Báo cáo | ⏳ |
 
 ## Quy trình truy xuất trong đồ án
@@ -175,6 +175,10 @@ Gen. = tỷ lệ câu trả lời đúng của Qwen2.5-7B-Instruct trên 500 que
 Trang Gradio chạy trên laptop (CPU) cho FiQA: chọn câu hỏi test hoặc tự nhập, xem 4 danh sách, trọng số mà 16 phương pháp gán, kết quả sau khi trộn, thời gian từng khâu và câu trả lời RAG. Câu hỏi test chạy hoàn toàn offline. Hướng dẫn cài: [`demo/README.md`](demo/README.md).
 
 `demo/selftest.py` truy xuất trực tiếp trên laptop toàn bộ 648 query test và khớp với Step 2 và Step 6: top-10 trùng 10/10 ở OS, OD, ES và 9,96/10 ở ED; Recall@10 / nDCG@10 của mọi phương pháp trùng đến 4 chữ số; Model A, B chọn đúng điểm lưới như Step 6 ở 648/648 query ([`results/step8/selftest.csv`](results/step8/selftest.csv)).
+
+## Báo cáo (Step 9)
+
+Nội dung chi tiết báo cáo và toàn bộ source của báo cáo (Viết bằng Typst) ở đường dẫn [`report\CS419.R11_QuDAR.pdf`](report\CS419.R11_QuDAR.pdf)
 
 ## Ghi nhận
 
