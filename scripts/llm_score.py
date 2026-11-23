@@ -12,6 +12,16 @@ Results are cached line by line in <out>/llm_<mode>_<name>.jsonl (resumable), th
   paper / code -> llm_scores_<mode>_<name>.csv (qudar format) + QuDAR-llm via qudar.fusion
   dat          -> dat_scores_<name>.csv + DAT fusion (alpha * OD + (1 - alpha) * OS)
 and the metrics are appended to <out>/llm_eval.csv.
+
+Backends (Step 10-B: a second, open-weight judge)
+  openai : gpt-4o-mini through the API, as in Steps 4 and 6 (default, unchanged).
+  vllm   : any chat model through vLLM (e.g. Qwen/Qwen2.5-7B-Instruct, fp16, TP over all GPUs).
+           Same prompts, same parsers, same cache format. Greedy decoding first; replies that
+           do not parse are re-asked with temperature 0.7 (seed = attempt), at most --retries times.
+           Each passage is capped at --passage-tokens tokens of the judge's tokenizer so no prompt
+           exceeds the context (the number of capped passages is printed). llm_eval.csv gets a
+           "judge" column. Write each judge to its own --out folder: the analysis scripts find
+           caches by file name, so two judges must never sit in the same input.
 """
 from __future__ import annotations
 
@@ -128,6 +138,78 @@ class Caller:
         return r.choices[0].message.content.strip(), int(getattr(r.usage, "total_tokens", 0) or 0)
 
 
+class VLLMCaller:
+    """Batch judge on local GPUs. --dry-run swaps the model for a fake one that sometimes replies badly."""
+
+    def __init__(self, model: str, max_len: int, passage_tokens: int, dry_run: bool) -> None:
+        self.passage_tokens, self.dry_run, self.capped = passage_tokens, dry_run, 0
+        if dry_run:
+            self.tok = None
+            return
+        import torch
+        from vllm import LLM, SamplingParams
+        self.SamplingParams = SamplingParams
+        self.llm = LLM(model=model, dtype="half",  # T4 has no bf16
+                       tensor_parallel_size=max(torch.cuda.device_count(), 1),
+                       max_model_len=max_len, gpu_memory_utilization=0.90, seed=0)
+        self.tok = self.llm.get_tokenizer()
+
+    def clip(self, text: str) -> str:
+        if self.tok is None:  # dry run: cap by words
+            words = text.split()
+            if len(words) <= self.passage_tokens:
+                return text
+            self.capped += 1
+            return " ".join(words[: self.passage_tokens])
+        ids = self.tok.encode(text, add_special_tokens=False)
+        if len(ids) <= self.passage_tokens:
+            return text
+        self.capped += 1
+        return self.tok.decode(ids[: self.passage_tokens])
+
+    def generate(self, prompts: list[str], temperature: float, seed: int) -> list[tuple[str, int]]:
+        if self.dry_run:
+            rng = random.Random(seed * 7919 + len(prompts))
+            out = []
+            for p in prompts:
+                n = 2 if "BM25 retrieval Top1" in p else 4
+                vals = [rng.randint(0, 5) for _ in range(n)]
+                bad = rng.random() < (0.2 if temperature == 0 else 0.05)  # exercise the retry path
+                reply = "I think" if bad else (json.dumps(vals) if "JSON array" in p else " ".join(map(str, vals)))
+                out.append((reply, len(p.split()) + 8))
+            return out
+        chats = [self.tok.apply_chat_template([{"role": "user", "content": p}], tokenize=False,
+                                              add_generation_prompt=True) for p in prompts]
+        params = self.SamplingParams(temperature=temperature, max_tokens=48,
+                                     seed=seed if temperature > 0 else None)
+        outs = self.llm.generate(chats, params)
+        return [(o.outputs[0].text.strip(), len(o.prompt_token_ids) + len(o.outputs[0].token_ids)) for o in outs]
+
+
+def score_batch_vllm(caller: VLLMCaller, mode: str, items: list, retries: int) -> list[dict]:
+    """items = [(qid, query, {source: passage})] -> cache rows in the same format as score_one."""
+    reqs = {}
+    for qid, query, text in items:
+        prompt, parse, _ = build_request(mode, qid, query, {s: caller.clip(t) for s, t in text.items()})
+        reqs[qid] = (prompt, parse)
+    rows, last, pending = {}, {}, [q for q, _, _ in items]
+    for attempt in range(retries + 1):
+        if not pending:
+            break
+        outs = caller.generate([reqs[q][0] for q in pending], 0.0 if attempt == 0 else 0.7, attempt)
+        still = []
+        for q, (reply, ntok) in zip(pending, outs):
+            last[q] = reply
+            try:
+                rows[q] = {"qid": q, "scores": reqs[q][1](reply), "raw": reply, "tokens": ntok, "attempt": attempt}
+            except ValueError:
+                still.append(q)
+        pending = still
+    for q in pending:
+        rows[q] = {"qid": q, "scores": None, "raw": last.get(q, ""), "tokens": 0, "attempt": retries}
+    return [rows[q] for q, _, _ in items]
+
+
 def score_one(caller, mode, qid, query, text, tries=8):
     prompt, parse, _ = build_request(mode, qid, query, text)
     last = ""
@@ -153,9 +235,15 @@ def main() -> None:
     p.add_argument("--runs", required=True)
     p.add_argument("--data-root", required=True)
     p.add_argument("--names", nargs="+", required=True)
-    p.add_argument("--mode", choices=["paper", "code", "paper_fixed", "code_shuffle", "dat"], default="paper")
+    p.add_argument("--mode", nargs="+", choices=["paper", "code", "paper_fixed", "code_shuffle", "dat"], default=["paper"],
+                   help="one or more modes; several modes share one model load and one corpus pass")
     p.add_argument("--out", required=True)
-    p.add_argument("--model", default="gpt-4o-mini")
+    p.add_argument("--model", default=None, help="default: gpt-4o-mini (openai), Qwen/Qwen2.5-7B-Instruct (vllm)")
+    p.add_argument("--backend", choices=["openai", "vllm"], default="openai")
+    p.add_argument("--max-model-len", type=int, default=6144, help="vllm context length")
+    p.add_argument("--passage-tokens", type=int, default=1024, help="vllm: cap per passage, in judge tokens")
+    p.add_argument("--retries", type=int, default=4, help="vllm: re-asks for replies that do not parse")
+    p.add_argument("--chunk", type=int, default=2000, help="vllm: queries per batch (cache saved after each)")
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--llm-tau", type=float, default=3.0)
     p.add_argument("--max-queries", type=int, default=None)
@@ -170,7 +258,12 @@ def main() -> None:
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    caller = Caller(args.model, args.dry_run)
+    if args.model is None:
+        args.model = "gpt-4o-mini" if args.backend == "openai" else "Qwen/Qwen2.5-7B-Instruct"
+    if args.backend == "openai":
+        caller = Caller(args.model, args.dry_run)
+    else:
+        caller = VLLMCaller(args.model, args.max_model_len, args.passage_tokens, args.dry_run)
     for name in args.names:
         dataset, split = name.rsplit("_", 1)
         # results on a subset get their own name, so they never overwrite full-set rows
@@ -187,55 +280,74 @@ def main() -> None:
                 row = json.loads(line)
                 if row.get("_id") in need:
                     corpus_text[row["_id"]] = row.get("text") or ""
-        cache = out / f"llm_{args.mode}_{name}.jsonl"
-        done = {}
-        if cache.exists():
-            for line in cache.read_text().splitlines():
-                row = json.loads(line)
-                if row["scores"] is not None:
-                    done[row["qid"]] = row
-        todo = [q for q in qids if q not in done]
-        print(f"{name} [{args.mode}]: {len(qids)} queries, {len(done)} cached, {len(todo)} to score", flush=True)
-        lock, t0 = threading.Lock(), time.time()
-        with cache.open("a") as fh, ThreadPoolExecutor(args.workers) as pool:
-            futs = [pool.submit(score_one, caller, args.mode, q, query_of[q],
-                                {s: corpus_text.get(rr[q][SRC[s]][0], "") for s in SRC}) for q in todo]
-            for i, fut in enumerate(as_completed(futs), 1):
-                row = fut.result()
-                with lock:
-                    fh.write(json.dumps(row) + "\n")
-                    fh.flush()
+        for mode in args.mode:
+            cache = out / f"llm_{mode}_{name}.jsonl"
+            done = {}
+            if cache.exists():
+                for line in cache.read_text().splitlines():
+                    row = json.loads(line)
                     if row["scores"] is not None:
                         done[row["qid"]] = row
-                if i % 500 == 0 or i == len(futs):
-                    rate = i / max(time.time() - t0, 1e-9) * 60
-                    print(f"  {i}/{len(futs)} scored, {rate:.0f}/min, ~{(len(futs) - i) / max(rate, 1e-9):.0f} min left", flush=True)
-        failed = [q for q in qids if q not in done]
-        tokens = [done[q]["tokens"] for q in done]
-        print(f"{name}: {len(failed)} failed (equal weights used), avg tokens/query {sum(tokens) / max(len(tokens), 1):.0f}", flush=True)
+            todo = [q for q in qids if q not in done]
+            print(f"{name} [{mode}]: {len(qids)} queries, {len(done)} cached, {len(todo)} to score", flush=True)
+            lock, t0 = threading.Lock(), time.time()
+            passages = {q: {s: corpus_text.get(rr[q][SRC[s]][0], "") for s in SRC} for q in todo}
+            if args.backend == "vllm":
+                capped0, retried = caller.capped, 0
+                with cache.open("a") as fh:
+                    for start in range(0, len(todo), args.chunk):
+                        part = todo[start:start + args.chunk]
+                        for row in score_batch_vllm(caller, mode, [(q, query_of[q], passages[q]) for q in part], args.retries):
+                            fh.write(json.dumps(row) + "\n")
+                            retried += row["attempt"] > 0
+                            if row["scores"] is not None:
+                                done[row["qid"]] = row
+                        fh.flush()
+                        n = start + len(part)
+                        rate = n / max(time.time() - t0, 1e-9) * 60
+                        print(f"  {n}/{len(todo)} scored, {rate:.0f}/min, ~{(len(todo) - n) / max(rate, 1e-9):.0f} min left", flush=True)
+                print(f"  {retried} queries needed a re-ask, {caller.capped - capped0} passages capped at {args.passage_tokens} tokens", flush=True)
+            else:
+                with cache.open("a") as fh, ThreadPoolExecutor(args.workers) as pool:
+                    futs = [pool.submit(score_one, caller, mode, q, query_of[q], passages[q]) for q in todo]
+                    for i, fut in enumerate(as_completed(futs), 1):
+                        row = fut.result()
+                        with lock:
+                            fh.write(json.dumps(row) + "\n")
+                            fh.flush()
+                            if row["scores"] is not None:
+                                done[row["qid"]] = row
+                        if i % 500 == 0 or i == len(futs):
+                            rate = i / max(time.time() - t0, 1e-9) * 60
+                            print(f"  {i}/{len(futs)} scored, {rate:.0f}/min, ~{(len(futs) - i) / max(rate, 1e-9):.0f} min left", flush=True)
+            failed = [q for q in qids if q not in done]
+            tokens = [done[q]["tokens"] for q in done]
+            print(f"{name}: {len(failed)} failed (equal weights used), avg tokens/query {sum(tokens) / max(len(tokens), 1):.0f}", flush=True)
 
-        if args.mode != "dat":
-            rows = [{"qid": q, "original_sparse": done[q]["scores"]["OS"], "original_dense": done[q]["scores"]["OD"],
-                     "expanded_sparse": done[q]["scores"]["ES"], "expanded_dense": done[q]["scores"]["ED"]} for q in done]
-            pd.DataFrame(rows).to_csv(out / f"llm_scores_{args.mode}_{eval_name}.csv", index=False)
-            lookup = build_llm_weight_lookup(rows, tau=args.llm_tau)
-            method = {"paper": "qudar_llm", "code": "qudar_llm_codeprompt", "paper_fixed": "qudar_llm_paper_fixed",
-                      "code_shuffle": "qudar_llm_code_shuffle"}[args.mode]
-        else:
-            rows = [{"qid": q, "dense": done[q]["scores"]["OD"], "bm25": done[q]["scores"]["OS"],
-                     "alpha": dat_alpha(done[q]["scores"]["OD"], done[q]["scores"]["OS"])} for q in done]
-            pd.DataFrame(rows).to_csv(out / f"dat_scores_{eval_name}.csv", index=False)
-            lookup = {r["qid"]: (1 - r["alpha"], r["alpha"], 0.0, 0.0) for r in rows}  # OS, OD, ES, ED
-            lookup.update({q: (0.5, 0.5, 0.0, 0.0) for q in failed})
-            method = "dat"
-        run, meta = build_llm_run(rr, lookup)
-        summary, per_query = evaluate_run(qrels, run, at_k=10)
-        json.dump(per_query, open(out / f"perquery_{method}_{eval_name}.json", "w"))
-        json.dump(meta, open(out / f"weights_{method}_{eval_name}.json", "w"))
-        row = {"name": eval_name, "method": method, "queries": len(qids), "failed": len(failed), **summary}
-        ev = out / "llm_eval.csv"
-        pd.DataFrame([row]).to_csv(ev, mode="a", header=not ev.exists(), index=False)
-        print(pd.DataFrame([row])[["name", "method", "Recall@10", "nDCG@10", "Precision@1"]].to_string(index=False), flush=True)
+            if mode != "dat":
+                rows = [{"qid": q, "original_sparse": done[q]["scores"]["OS"], "original_dense": done[q]["scores"]["OD"],
+                         "expanded_sparse": done[q]["scores"]["ES"], "expanded_dense": done[q]["scores"]["ED"]} for q in done]
+                pd.DataFrame(rows).to_csv(out / f"llm_scores_{mode}_{eval_name}.csv", index=False)
+                lookup = build_llm_weight_lookup(rows, tau=args.llm_tau)
+                method = {"paper": "qudar_llm", "code": "qudar_llm_codeprompt", "paper_fixed": "qudar_llm_paper_fixed",
+                          "code_shuffle": "qudar_llm_code_shuffle"}[mode]
+            else:
+                rows = [{"qid": q, "dense": done[q]["scores"]["OD"], "bm25": done[q]["scores"]["OS"],
+                         "alpha": dat_alpha(done[q]["scores"]["OD"], done[q]["scores"]["OS"])} for q in done]
+                pd.DataFrame(rows).to_csv(out / f"dat_scores_{eval_name}.csv", index=False)
+                lookup = {r["qid"]: (1 - r["alpha"], r["alpha"], 0.0, 0.0) for r in rows}  # OS, OD, ES, ED
+                lookup.update({q: (0.5, 0.5, 0.0, 0.0) for q in failed})
+                method = "dat"
+            run, meta = build_llm_run(rr, lookup)
+            summary, per_query = evaluate_run(qrels, run, at_k=10)
+            json.dump(per_query, open(out / f"perquery_{method}_{eval_name}.json", "w"))
+            json.dump(meta, open(out / f"weights_{method}_{eval_name}.json", "w"))
+            row = {"name": eval_name, "method": method, "queries": len(qids), "failed": len(failed), **summary}
+            if args.backend == "vllm":
+                row["judge"] = args.model
+            ev = out / "llm_eval.csv"
+            pd.DataFrame([row]).to_csv(ev, mode="a", header=not ev.exists(), index=False)
+            print(pd.DataFrame([row])[["name", "method", "Recall@10", "nDCG@10", "Precision@1"]].to_string(index=False), flush=True)
 
 
 if __name__ == "__main__":

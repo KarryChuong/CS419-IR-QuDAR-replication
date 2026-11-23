@@ -1,0 +1,211 @@
+{
+  "scifact": {
+    "corpus_docs": 5183,
+    "duplicate_ids": 0,
+    "avg_words_per_doc": 214.6,
+    "queries_jsonl": 1109,
+    "qrels": {
+      "test": {
+        "queries": 300,
+        "pairs": 339,
+        "levels": {
+          "1": 339
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 1.13,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "train": {
+        "queries": 809,
+        "pairs": 919,
+        "levels": {
+          "1": 919
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 1.14,
+        "qrels_ids_missing_from_corpus": 0
+      }
+    },
+    "warnings": [],
+    "size_gb": 0.01
+  },
+  "nfcorpus": {
+    "corpus_docs": 3633,
+    "duplicate_ids": 0,
+    "avg_words_per_doc": 233.8,
+    "queries_jsonl": 3237,
+    "qrels": {
+      "dev": {
+        "queries": 324,
+        "pairs": 11385,
+        "levels": {
+          "1": 10864,
+          "2": 521
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 35.14,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "test": {
+        "queries": 323,
+        "pairs": 12334,
+        "levels": {
+          "1": 11758,
+          "2": 576
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 38.19,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "train": {
+        "queries": 2590,
+        "pairs": 110575,
+        "levels": {
+          "1": 110575
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 42.69,
+        "qrels_ids_missing_from_corpus": 0
+      }
+    },
+    "warnings": [],
+    "size_gb": 0.01
+  },
+  "fever": {
+    "corpus_docs": 5416568,
+    "duplicate_ids": 0,
+    "avg_words_per_doc": 97.7,
+    "queries_jsonl": 123142,
+    "qrels": {
+      "dev": {
+        "queries": 6666,
+        "pairs": 8079,
+        "levels": {
+          "1": 8079
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 1.21,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "test": {
+        "queries": 6666,
+        "pairs": 7937,
+        "levels": {
+          "1": 7937
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 1.19,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "train": {
+        "queries": 109810,
+        "pairs": 140085,
+        "levels": {
+          "1": 140085
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 1.28,
+        "qrels_ids_missing_from_corpus": 0
+      }
+    },
+    "warnings": [],
+    "size_gb": 3.24
+  },
+  "dbpedia-entity": {
+    "corpus_docs": 4635922,
+    "duplicate_ids": 0,
+    "avg_words_per_doc": 49.8,
+    "queries_jsonl": 467,
+    "qrels": {
+      "dev": {
+        "queries": 67,
+        "pairs": 5673,
+        "levels": {
+          "0": 4268,
+          "1": 1024,
+          "2": 381
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 20.97,
+        "qrels_ids_missing_from_corpus": 0
+      },
+      "test": {
+        "queries": 400,
+        "pairs": 43515,
+        "levels": {
+          "0": 28229,
+          "1": 8785,
+          "2": 6501
+        },
+        "queries_without_positive": 0,
+        "mean_positives_per_query": 38.22,
+        "qrels_ids_missing_from_corpus": 0
+      }
+    },
+    "warnings": [],
+    "size_gb": 1.76
+  },
+  "fever_vs_climate_fever": {
+    "fever_ids": 5416568,
+    "cf_ids": 5416593,
+    "common_same_text": 5416536,
+    "fever_only": 32,
+    "common_text_mismatch": 0,
+    "cf_only": 57,
+    "verdict": "PARTIAL: filter the Climate-FEVER shards and encode the listed ids",
+    "examples_fever_only": [
+      "Eugène_Ionesco",
+      "José_Ferrer",
+      "Raven-Symoné",
+      "Cléopâtre",
+      "Édouard_Séguin",
+      "Opéra_de_Monte-Carlo",
+      "Simón_Bolívar",
+      "Pablo_Larraín",
+      "Curaçao",
+      "Tightrope_(Janelle_Monáe_song)"
+    ],
+    "examples_mismatch": []
+  },
+  "expansion_plan": {
+    "rows": [
+      {
+        "dataset": "scifact",
+        "split": "test",
+        "queries": 300
+      },
+      {
+        "dataset": "scifact",
+        "split": "train",
+        "queries": 809
+      },
+      {
+        "dataset": "nfcorpus",
+        "split": "test",
+        "queries": 323
+      },
+      {
+        "dataset": "nfcorpus",
+        "split": "train",
+        "queries": 2590
+      },
+      {
+        "dataset": "fever",
+        "split": "test",
+        "queries": 6666
+      },
+      {
+        "dataset": "fever",
+        "split": "train",
+        "queries": 10000
+      },
+      {
+        "dataset": "dbpedia-entity",
+        "split": "test",
+        "queries": 400
+      }
+    ],
+    "total_queries": 21088,
+    "estimated_minutes_T4x2": 64
+  }
+}
