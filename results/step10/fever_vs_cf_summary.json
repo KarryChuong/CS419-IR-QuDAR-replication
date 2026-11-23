@@ -1,0 +1,22 @@
+{
+  "fever_ids": 5416568,
+  "cf_ids": 5416593,
+  "common_same_text": 5416536,
+  "fever_only": 32,
+  "common_text_mismatch": 0,
+  "cf_only": 57,
+  "verdict": "PARTIAL: filter the Climate-FEVER shards and encode the listed ids",
+  "examples_fever_only": [
+    "Eugène_Ionesco",
+    "José_Ferrer",
+    "Raven-Symoné",
+    "Cléopâtre",
+    "Édouard_Séguin",
+    "Opéra_de_Monte-Carlo",
+    "Simón_Bolívar",
+    "Pablo_Larraín",
+    "Curaçao",
+    "Tightrope_(Janelle_Monáe_song)"
+  ],
+  "examples_mismatch": []
+}
