@@ -6,13 +6,14 @@ Phần đồ án bổ sung cho pipeline của tác giả (`kaist-dmlab/QuDAR`). 
 |---|---|---|
 | `bm25_fast.py` + `apply_patch.py` | Step 1A, Step 2 | Thay `rank_bm25` của repo bằng `BM25sSparseRetriever` (bm25s mặc định: lucene, stopword tiếng Anh, PyStemmer), cấu hình khớp Table 1 của paper; cần `pip install bm25s`. Lớp `FastBM25SparseRetriever` (giống hệt rank_bm25) giữ lại để đối chứng |
 | `encode_shards.py` | Step 1B | Encode corpus lớn bằng Contriever thành shard fp16, chạy tiếp được nếu bị ngắt |
-| `expand_queries.py` | Step 1C | Sinh query mở rộng bằng LLaMA 3.1-8B-Instruct (vLLM, dự phòng transformers), prompt Phụ lục G, output `{qid: passage}` |
+| `expand_queries.py` | Step 1C, 10b | Sinh query mở rộng bằng LLaMA 3.1-8B-Instruct (vLLM, dự phòng transformers), prompt Phụ lục G, output `{qid: passage}`. Từ Step 10b: đọc query không cần nạp corpus (cùng thứ tự với `run_retrieval`), và `--logprobs K` lưu log-prob của từng token sinh ra kèm top-K vào `logprobs/<dataset>_<split>/part_NNN.npz`; kết quả sinh không đổi |
 | `build_index_from_shards.py` | Step 2 | Ghép shard thành FAISS index cùng định dạng với `qudar.build_index` |
 | `check_datasets.py` | Trước Step 2 | Kiểm tra cấu trúc và số lượng trong các dataset Kaggle |
 | `run_retrieval.py` | Step 2 | Chạy 4 danh sách OS/OD/ES/ED + mọi kết quả không cần LLM, giống hệt `qudar.cli` nhưng tiết kiệm RAM; tìm dense trên GPU từ shard; kiểm tra shard khớp corpus |
 | `grid_sweep.py` | Step 3, 5 | Lưới trọng số (α, β1, β2) bước 0.1 cho từng query: Static Avg/UB 4 danh sách, cận trên theo query |
 | `llm_score.py` | Step 4, 6.1, 10-B | gpt-4o-mini chấm top-1: `paper` (Prompt 1 + xáo trộn), `code` (bản công bố), `paper_fixed`, `code_shuffle` (ablation 2×2), `dat` (baseline DAT); `--max-queries` để chạy một phần. Từ Step 10: `--mode` nhận nhiều chế độ trong một lần chạy; `--backend vllm --model Qwen/Qwen2.5-7B-Instruct` chấm bằng LLM mã nguồn mở (cùng prompt, cùng định dạng cache, cắt mỗi passage ở `--passage-tokens`, hỏi lại khi trả lời sai định dạng). Mỗi LLM chấm ghi vào một thư mục `--out` riêng |
 | `prepare_new_datasets.py` | Step 10a | Tải SciFact, NFCorpus, FEVER, DBPedia-entity; thống kê corpus/qrels; so corpus FEVER với Climate-FEVER từng tài liệu để quyết định có dùng lại shard Contriever của Climate-FEVER không; ước tính thời gian mở rộng query |
+| `build_fever_shards.py` | Step 10b | Dựng shard Contriever của FEVER từ shard Climate-FEVER (bỏ id thừa, encode thêm tài liệu chỉ có ở FEVER), kiểm tra id khớp corpus, báo cáo lệch chuẩn hóa Unicode |
 | `step5_analysis.py` | Step 5 | Bảng so với paper (Table 1–2, 8), Figure 2–5 (chia đều các điểm hòa), thống kê thiên lệch vị trí |
 | `step6.py` | Step 6 | 63 đặc trưng theo query, mô hình học trọng số A/B (LightGBM hồi quy bề mặt nDCG) và Direct, Static-train, QuDAR-llm khử thiên lệch, bảng ablation LLM, kiểm định bootstrap + t-test |
 | `step6b.py` | Step 6.3b | Bản sửa duy nhất (thiết kế trước): mô hình có cổng quanh Static-train (ngưỡng chọn trên 20% validation), đặc trưng không phụ thuộc thang đo (A-sf, B-sf), hiệu chỉnh Holm |
