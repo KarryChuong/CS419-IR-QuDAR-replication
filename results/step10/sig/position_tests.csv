@@ -1,0 +1,17 @@
+family,judge,set,mode,queries,pos 1,pos 2,pos 3,pos 4,highest,lowest,T,p,p Holm,sig (Holm p<0.05)
+F4 position,gpt-4o-mini,FiQA,paper prompt + shuffled,648,3.519,3.094,2.744,2.096,1,4,1.08611,0.0001,0.0008,*
+F4 position,gpt-4o-mini,FiQA,code prompt + shuffled,648,3.702,3.056,3.086,3.122,1,2,0.28513,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,FiQA,paper prompt + shuffled,648,2.14,2.477,3.12,1.765,3,4,0.99254,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,FiQA,code prompt + shuffled,648,1.944,2.306,2.397,1.914,3,4,0.18276,0.0001,0.0008,*
+F4 position,gpt-4o-mini,SciDocs,paper prompt + shuffled,1000,3.984,3.682,3.202,2.49,1,4,1.27324,0.0001,0.0008,*
+F4 position,gpt-4o-mini,SciDocs,code prompt + shuffled,1000,3.922,3.375,3.225,3.211,1,4,0.33503,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,SciDocs,paper prompt + shuffled,1000,2.734,2.748,3.581,1.846,3,4,1.50597,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,SciDocs,code prompt + shuffled,1000,2.367,2.394,2.458,2.099,3,4,0.07521,0.0001,0.0008,*
+F4 position,gpt-4o-mini,Climate-FEVER,paper prompt + shuffled,1535,2.866,2.646,2.506,2.072,1,4,0.33655,0.0001,0.0008,*
+F4 position,gpt-4o-mini,Climate-FEVER,code prompt + shuffled,1535,3.509,2.589,2.668,2.767,1,2,0.53779,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,Climate-FEVER,paper prompt + shuffled,1535,2.218,2.517,3.369,1.709,3,4,1.45217,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,Climate-FEVER,code prompt + shuffled,1535,1.22,2.173,2.392,1.893,3,1,0.77698,0.0001,0.0008,*
+F4 position,gpt-4o-mini,HotpotQA,paper prompt + shuffled,7405,3.12,2.559,2.483,2.272,1,4,0.39301,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,HotpotQA,paper prompt + shuffled,7405,2.795,3.193,3.426,2.028,3,4,1.12713,0.0001,0.0008,*
+F4 position,gpt-4o-mini,HotpotQA (first 1500),code prompt + shuffled,1500,3.077,2.717,2.875,2.868,1,2,0.06571,0.0001,0.0008,*
+F4 position,Qwen2.5-7B,HotpotQA (first 1500),code prompt + shuffled,1500,2.532,2.996,2.881,2.529,2,4,0.17332,0.0001,0.0008,*

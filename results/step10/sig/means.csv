@@ -1,0 +1,40 @@
+set,method,queries,Recall@10,nDCG@10
+FiQA,Equal,648,0.3333,0.2512
+FiQA,gpt-4o-mini|paper,648,0.3281,0.2539
+FiQA,gpt-4o-mini|paper_fixed,648,0.3423,0.2712
+FiQA,gpt-4o-mini|code_shuffle,648,0.3386,0.2624
+FiQA,gpt-4o-mini|code,648,0.3522,0.2748
+FiQA,Qwen2.5-7B|paper,648,0.3201,0.2469
+FiQA,Qwen2.5-7B|paper_fixed,648,0.3058,0.2398
+FiQA,Qwen2.5-7B|code_shuffle,648,0.3423,0.2601
+FiQA,Qwen2.5-7B|code,648,0.336,0.2617
+SciDocs,Equal,1000,0.1901,0.1793
+SciDocs,gpt-4o-mini|paper,1000,0.1899,0.1799
+SciDocs,gpt-4o-mini|paper_fixed,1000,0.1906,0.1809
+SciDocs,gpt-4o-mini|code_shuffle,1000,0.192,0.1823
+SciDocs,gpt-4o-mini|code,1000,0.1889,0.1806
+SciDocs,Qwen2.5-7B|paper,1000,0.1877,0.1809
+SciDocs,Qwen2.5-7B|paper_fixed,1000,0.1888,0.1799
+SciDocs,Qwen2.5-7B|code_shuffle,1000,0.19,0.1811
+SciDocs,Qwen2.5-7B|code,1000,0.1892,0.1813
+Climate-FEVER,Equal,1535,0.2504,0.2047
+Climate-FEVER,gpt-4o-mini|paper,1535,0.2567,0.2093
+Climate-FEVER,gpt-4o-mini|paper_fixed,1535,0.2552,0.2096
+Climate-FEVER,gpt-4o-mini|code_shuffle,1535,0.2609,0.2146
+Climate-FEVER,gpt-4o-mini|code,1535,0.2591,0.2145
+Climate-FEVER,Qwen2.5-7B|paper,1535,0.244,0.2023
+Climate-FEVER,Qwen2.5-7B|paper_fixed,1535,0.2352,0.1943
+Climate-FEVER,Qwen2.5-7B|code_shuffle,1535,0.2511,0.2059
+Climate-FEVER,Qwen2.5-7B|code,1535,0.2388,0.1978
+HotpotQA,Equal,7405,0.6827,0.6318
+HotpotQA,gpt-4o-mini|paper,7405,0.6704,0.6355
+HotpotQA,Qwen2.5-7B|paper,7405,0.6703,0.6269
+HotpotQA (first 1500),Equal,1500,0.689,0.6357
+HotpotQA (first 1500),gpt-4o-mini|paper,1500,0.6737,0.6366
+HotpotQA (first 1500),gpt-4o-mini|paper_fixed,1500,0.6823,0.644
+HotpotQA (first 1500),gpt-4o-mini|code_shuffle,1500,0.6927,0.6557
+HotpotQA (first 1500),gpt-4o-mini|code,1500,0.6883,0.6525
+HotpotQA (first 1500),Qwen2.5-7B|paper,1500,0.6733,0.6246
+HotpotQA (first 1500),Qwen2.5-7B|paper_fixed,1500,0.675,0.6234
+HotpotQA (first 1500),Qwen2.5-7B|code_shuffle,1500,0.6803,0.6456
+HotpotQA (first 1500),Qwen2.5-7B|code,1500,0.688,0.6481

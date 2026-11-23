@@ -14,15 +14,17 @@ Phần đồ án bổ sung cho pipeline của tác giả (`kaist-dmlab/QuDAR`). 
 | `llm_score.py` | Step 4, 6.1, 10-B | gpt-4o-mini chấm top-1: `paper` (Prompt 1 + xáo trộn), `code` (bản công bố), `paper_fixed`, `code_shuffle` (ablation 2×2), `dat` (baseline DAT); `--max-queries` để chạy một phần. Từ Step 10: `--mode` nhận nhiều chế độ trong một lần chạy; `--backend vllm --model Qwen/Qwen2.5-7B-Instruct` chấm bằng LLM mã nguồn mở (cùng prompt, cùng định dạng cache, cắt mỗi passage ở `--passage-tokens`, hỏi lại khi trả lời sai định dạng). Mỗi LLM chấm ghi vào một thư mục `--out` riêng |
 | `prepare_new_datasets.py` | Step 10a | Tải SciFact, NFCorpus, FEVER, DBPedia-entity; thống kê corpus/qrels; so corpus FEVER với Climate-FEVER từng tài liệu để quyết định có dùng lại shard Contriever của Climate-FEVER không; ước tính thời gian mở rộng query |
 | `build_fever_shards.py` | Step 10b | Dựng shard Contriever của FEVER từ shard Climate-FEVER (bỏ id thừa, encode thêm tài liệu chỉ có ở FEVER), kiểm tra id khớp corpus, báo cáo lệch chuẩn hóa Unicode |
+| `judge_significance.py` | Step 10-B2 | Kiểm định ghép cặp cho hai LLM chấm (gpt-4o-mini, Qwen2.5-7B): bootstrap 10.000 lần và t-test ghép cặp (lấy p lớn hơn, như Step 6), hiệu chỉnh Holm trong từng họ kiểm định đặt trước: F1 QuDAR-llm so với Equal, F2 so hai LLM chấm, F3 ablation 2×2, F4 thiên lệch vị trí (kiểm định hoán vị, hợp lệ vì `llm_score.py` xáo thứ tự theo seed = qid). Tính lại chỉ số từng query bằng `grid_sweep.query_metrics` và đối chiếu với `llm_eval.csv` |
 | `step5_analysis.py` | Step 5 | Bảng so với paper (Table 1–2, 8), Figure 2–5 (chia đều các điểm hòa), thống kê thiên lệch vị trí |
 | `step6.py` | Step 6 | 63 đặc trưng theo query, mô hình học trọng số A/B (LightGBM hồi quy bề mặt nDCG) và Direct, Static-train, QuDAR-llm khử thiên lệch, bảng ablation LLM, kiểm định bootstrap + t-test |
 | `step6b.py` | Step 6.3b | Bản sửa duy nhất (thiết kế trước): mô hình có cổng quanh Static-train (ngưỡng chọn trên 20% validation), đặc trưng không phụ thuộc thang đo (A-sf, B-sf), hiệu chỉnh Holm |
 | `rag_eval.py` | Step 7 | RAG end-to-end: Qwen2.5-7B-Instruct (vLLM) sinh câu trả lời từ top-5 passage và tự chấm theo QA-Eval; 500 query × 13 phương pháp; kiểm định cặp (Table 3) |
 | `pack_demo_data.py` | Step 8 | Gom dữ liệu cho demo: corpus và query FiQA, embedding lấy từ FAISS index, 4 danh sách Step 2, query mở rộng, điểm LLM, mô hình Step 6, điểm Static-train → `demo_data.zip` (khoảng 110 MB) |
 
-Thứ tự phụ thuộc: `expand_queries` → `run_retrieval` → `grid_sweep` → `llm_score` → `step5_analysis` → `step6` → `step6b` → `rag_eval` → `pack_demo_data`. Bản thân demo nằm ở [`../demo/`](../demo/).
+Thứ tự phụ thuộc: `expand_queries` → `run_retrieval` → `grid_sweep` → `llm_score` → (`judge_significance`) → `step5_analysis` → `step6` → `step6b` → `rag_eval` → `pack_demo_data`. Bản thân demo nằm ở [`../demo/`](../demo/).
 
 Đã kiểm tra (CPU, mô hình nhỏ giả lập): `encode_shards.py` + `build_index_from_shards.py` cho top-50 trùng 100% và điểm giống hệt `qudar.build_index`.
 
 `run_retrieval.py` với `--dense-faiss` cho `eval_results.csv` trùng tuyệt đối với `python -m qudar.cli` (dữ liệu giả lập 3.000 tài liệu); với `--dense-shards` điểm số trùng đến 1e-6.
 `grid_sweep.py`: chỉ số tính bằng numpy trùng `qudar.fusion` + `pytrec_eval` (sai khác < 1e-4 do làm tròn). `llm_score.py`: đã test cả 3 chế độ bằng `--dry-run`.
+`judge_significance.py`: chạy hết các nhánh trên dữ liệu giả lập (2 bộ, 2 LLM chấm, có query thiếu điểm); điểm theo vị trí tính lại từ CSV khớp Step 5 (FiQA, gpt-4o-mini: 3,52 / 3,09 / 2,74 / 2,10).
