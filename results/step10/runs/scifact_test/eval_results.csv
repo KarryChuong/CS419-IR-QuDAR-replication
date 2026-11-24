@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+scifact_test,scifact,10,os,0.8187,0.6863,0.6387,0.55,0.653,0.8367
+scifact_test,scifact,10,od,0.7176,0.5757,0.5245,0.4333,0.545,0.7333
+scifact_test,scifact,10,es,0.7826,0.5967,0.533,0.4267,0.5501,0.7967
+scifact_test,scifact,10,ed,0.6256,0.4629,0.4075,0.33,0.4278,0.6433
+scifact_test,scifact,10,qudar_simple_rrf,0.8458,0.6894,0.6334,0.5267,0.649,0.8633
+scifact_test,scifact,10,qudar_simple_equal,0.8649,0.7231,0.6718,0.5733,0.6862,0.88
+scifact_test,scifact,10,qudar_confidence,0.8643,0.724,0.6733,0.5767,0.6879,0.88
+scifact_test,scifact,10,sha_os_od,0.8215,0.6818,0.631,0.5421,0.6482,0.8373
+scifact_test,scifact,10,shb_os_od,0.8602,0.7283,0.6803,0.6,0.6983,0.8733
+scifact_test,scifact,10,dhb_os_od,0.8952,0.7934,0.7541,0.6933,0.7713,0.9033
+scifact_test,scifact,10,sha_os_es,0.8279,0.6769,0.623,0.5261,0.6387,0.8427
+scifact_test,scifact,10,shb_os_es,0.8532,0.7078,0.6589,0.57,0.6752,0.87
+scifact_test,scifact,10,dhb_os_es,0.8826,0.7617,0.7172,0.64,0.732,0.8933
+scifact_test,scifact,10,sha_od_ed,0.7063,0.5447,0.4878,0.3967,0.5095,0.7261
+scifact_test,scifact,10,shb_od_ed,0.7473,0.5923,0.537,0.4467,0.5587,0.7667
+scifact_test,scifact,10,dhb_od_ed,0.7971,0.6644,0.6159,0.5367,0.6352,0.8133

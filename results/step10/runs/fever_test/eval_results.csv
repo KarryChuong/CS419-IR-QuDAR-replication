@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+fever_test,fever,10,os,0.6538,0.4812,0.4193,0.3303,0.4492,0.6883
+fever_test,fever,10,od,0.5015,0.3453,0.2898,0.2072,0.319,0.5327
+fever_test,fever,10,es,0.7051,0.5641,0.5081,0.4401,0.5482,0.7478
+fever_test,fever,10,ed,0.54,0.4322,0.389,0.3351,0.4228,0.578
+fever_test,fever,10,qudar_simple_rrf,0.7693,0.6117,0.5508,0.4778,0.592,0.8132
+fever_test,fever,10,qudar_simple_equal,0.7901,0.6357,0.5751,0.5003,0.6162,0.835
+fever_test,fever,10,qudar_confidence,0.7896,0.6368,0.5767,0.5021,0.618,0.8341
+fever_test,fever,10,sha_os_od,0.6346,0.461,0.3986,0.307,0.4302,0.6707
+fever_test,fever,10,shb_os_od,0.6916,0.5111,0.4463,0.3521,0.4785,0.73
+fever_test,fever,10,dhb_os_od,0.7515,0.5822,0.519,0.4302,0.5513,0.7913
+fever_test,fever,10,sha_os_es,0.7555,0.6072,0.5493,0.4736,0.5868,0.7968
+fever_test,fever,10,shb_os_es,0.8243,0.6923,0.6382,0.5702,0.6784,0.8677
+fever_test,fever,10,dhb_os_es,0.8686,0.7675,0.7225,0.6803,0.763,0.9107
+fever_test,fever,10,sha_od_ed,0.5649,0.4314,0.3807,0.311,0.4145,0.602
+fever_test,fever,10,shb_od_ed,0.601,0.47,0.4215,0.3615,0.458,0.6401
+fever_test,fever,10,dhb_od_ed,0.6747,0.55,0.5,0.4425,0.5374,0.7174
