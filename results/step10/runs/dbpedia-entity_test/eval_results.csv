@@ -1,0 +1,17 @@
+experiment,dataset,atk,method,Recall@10,nDCG@10,MAP@10,Precision@1,MRR,Hit@10
+dbpedia-entity_test,dbpedia-entity,10,os,0.1924,0.3005,0.1365,0.4675,0.5814,0.79
+dbpedia-entity_test,dbpedia-entity,10,od,0.1789,0.2487,0.1124,0.39,0.5167,0.765
+dbpedia-entity_test,dbpedia-entity,10,es,0.1432,0.2513,0.1026,0.4325,0.5368,0.71
+dbpedia-entity_test,dbpedia-entity,10,ed,0.1793,0.29,0.1296,0.4825,0.6,0.8225
+dbpedia-entity_test,dbpedia-entity,10,qudar_simple_rrf,0.2479,0.3785,0.1783,0.5825,0.6901,0.87
+dbpedia-entity_test,dbpedia-entity,10,qudar_simple_equal,0.2595,0.3978,0.1914,0.6175,0.716,0.8875
+dbpedia-entity_test,dbpedia-entity,10,qudar_confidence,0.2591,0.3984,0.1911,0.62,0.7178,0.8875
+dbpedia-entity_test,dbpedia-entity,10,sha_os_od,0.2031,0.3057,0.143,0.4866,0.6024,0.8161
+dbpedia-entity_test,dbpedia-entity,10,shb_os_od,0.2187,0.3354,0.1575,0.54,0.6502,0.8575
+dbpedia-entity_test,dbpedia-entity,10,dhb_os_od,0.2506,0.3943,0.1894,0.65,0.735,0.8975
+dbpedia-entity_test,dbpedia-entity,10,sha_os_es,0.1937,0.316,0.1394,0.5007,0.6092,0.798
+dbpedia-entity_test,dbpedia-entity,10,shb_os_es,0.2282,0.3664,0.1651,0.56,0.6712,0.8675
+dbpedia-entity_test,dbpedia-entity,10,dhb_os_es,0.2585,0.4326,0.2004,0.6975,0.7715,0.8975
+dbpedia-entity_test,dbpedia-entity,10,sha_od_ed,0.2012,0.3022,0.1397,0.4918,0.6063,0.8198
+dbpedia-entity_test,dbpedia-entity,10,shb_od_ed,0.2244,0.3332,0.1563,0.5525,0.6495,0.8525
+dbpedia-entity_test,dbpedia-entity,10,dhb_od_ed,0.2536,0.3898,0.1895,0.6325,0.7262,0.8875
