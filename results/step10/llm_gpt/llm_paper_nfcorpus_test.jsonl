@@ -1,0 +1,323 @@
+{"qid": "PLAIN-2", "scores": {"OS": 5, "ES": 5, "ED": 1, "OD": 5}, "raw": "[5, 5, 1, 5]", "tokens": 1426}
+{"qid": "PLAIN-23", "scores": {"ES": 3, "OD": 4, "OS": 5, "ED": 4}, "raw": "[3,4,5,4]", "tokens": 1470}
+{"qid": "PLAIN-12", "scores": {"OD": 3, "OS": 5, "ES": 5, "ED": 5}, "raw": "[3,5,5,5]", "tokens": 1142}
+{"qid": "PLAIN-33", "scores": {"OS": 5, "OD": 4, "ES": 5, "ED": 3}, "raw": "[5, 4, 5, 3]", "tokens": 1260}
+{"qid": "PLAIN-56", "scores": {"ED": 2, "OD": 4, "OS": 4, "ES": 4}, "raw": "[2, 4, 4, 4]", "tokens": 1859}
+{"qid": "PLAIN-44", "scores": {"OS": 1, "ED": 2, "ES": 3, "OD": 0}, "raw": "[1, 2, 3, 0]", "tokens": 1222}
+{"qid": "PLAIN-78", "scores": {"ES": 3, "ED": 0, "OS": 4, "OD": 5}, "raw": "[3,0,4,5]", "tokens": 1139}
+{"qid": "PLAIN-68", "scores": {"OS": 5, "OD": 5, "ES": 1, "ED": 5}, "raw": "[5, 5, 1, 5]", "tokens": 861}
+{"qid": "PLAIN-91", "scores": {"ES": 3, "ED": 0, "OS": 5, "OD": 1}, "raw": "[3, 0, 5, 1]", "tokens": 819}
+{"qid": "PLAIN-102", "scores": {"ED": 2, "OS": 3, "ES": 1, "OD": 0}, "raw": "[2, 3, 1, 0]", "tokens": 1077}
+{"qid": "PLAIN-112", "scores": {"ED": 5, "OS": 5, "OD": 5, "ES": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1157}
+{"qid": "PLAIN-123", "scores": {"ES": 0, "OD": 4, "ED": 4, "OS": 0}, "raw": "[0, 4, 4, 0]", "tokens": 1350}
+{"qid": "PLAIN-133", "scores": {"OD": 3, "OS": 5, "ES": 5, "ED": 5}, "raw": "[3, 5, 5, 5]", "tokens": 1142}
+{"qid": "PLAIN-153", "scores": {"ES": 5, "OS": 1, "ED": 3, "OD": 3}, "raw": "[5, 1, 3, 3]", "tokens": 1101}
+{"qid": "PLAIN-143", "scores": {"OS": 5, "OD": 4, "ED": 4, "ES": 4}, "raw": "[5, 4, 4, 4]", "tokens": 1358}
+{"qid": "PLAIN-165", "scores": {"ES": 5, "OD": 3, "OS": 3, "ED": 2}, "raw": "[5, 3, 3, 2]", "tokens": 1262}
+{"qid": "PLAIN-186", "scores": {"OD": 5, "ED": 2, "ES": 3, "OS": 4}, "raw": "[5, 2, 3, 4]", "tokens": 977}
+{"qid": "PLAIN-175", "scores": {"ES": 5, "OS": 5, "ED": 2, "OD": 5}, "raw": "[5, 5, 2, 5]", "tokens": 1479}
+{"qid": "PLAIN-196", "scores": {"OS": 5, "ES": 5, "OD": 0, "ED": 5}, "raw": "[5, 5, 0, 5]", "tokens": 2004}
+{"qid": "PLAIN-207", "scores": {"ED": 5, "OD": 4, "ES": 2, "OS": 3}, "raw": "[5, 4, 2, 3]", "tokens": 1493}
+{"qid": "PLAIN-217", "scores": {"ED": 4, "ES": 5, "OS": 1, "OD": 2}, "raw": "[4, 5, 1, 2]", "tokens": 1058}
+{"qid": "PLAIN-227", "scores": {"OS": 0, "OD": 0, "ES": 0, "ED": 0}, "raw": "[0, 0, 0, 0]", "tokens": 643}
+{"qid": "PLAIN-238", "scores": {"OS": 5, "OD": 1, "ED": 3, "ES": 4}, "raw": "[5, 1, 3, 4]", "tokens": 1341}
+{"qid": "PLAIN-248", "scores": {"ES": 5, "OS": 2, "ED": 1, "OD": 4}, "raw": "[5, 2, 1, 4]", "tokens": 946}
+{"qid": "PLAIN-259", "scores": {"ED": 4, "ES": 4, "OD": 4, "OS": 5}, "raw": "[4, 4, 4, 5]", "tokens": 1421}
+{"qid": "PLAIN-280", "scores": {"ED": 4, "ES": 5, "OS": 3, "OD": 2}, "raw": "[4, 5, 3, 2]", "tokens": 1491}
+{"qid": "PLAIN-270", "scores": {"ED": 1, "ES": 2, "OD": 3, "OS": 3}, "raw": "[1, 2, 3, 3]", "tokens": 1405}
+{"qid": "PLAIN-291", "scores": {"ED": 3, "ES": 2, "OS": 0, "OD": 5}, "raw": "[3, 2, 0, 5]", "tokens": 1442}
+{"qid": "PLAIN-307", "scores": {"OS": 3, "OD": 5, "ED": 4, "ES": 4}, "raw": "[3,5,4,4]", "tokens": 863}
+{"qid": "PLAIN-332", "scores": {"ED": 5, "OS": 5, "ES": 5, "OD": 2}, "raw": "[5, 5, 5, 2]", "tokens": 1199}
+{"qid": "PLAIN-320", "scores": {"OD": 5, "OS": 4, "ED": 3, "ES": 3}, "raw": "[5, 4, 3, 3]", "tokens": 1056}
+{"qid": "PLAIN-344", "scores": {"OS": 5, "ED": 3, "ES": 4, "OD": 1}, "raw": "[5, 3, 4, 1]", "tokens": 1000}
+{"qid": "PLAIN-358", "scores": {"OD": 2, "ES": 2, "OS": 2, "ED": 1}, "raw": "[2,2,2,1]", "tokens": 1076}
+{"qid": "PLAIN-371", "scores": {"ES": 0, "ED": 3, "OD": 3, "OS": 3}, "raw": "[0, 3, 3, 3]", "tokens": 971}
+{"qid": "PLAIN-383", "scores": {"ES": 2, "OD": 5, "OS": 1, "ED": 0}, "raw": "[2, 5, 1, 0]", "tokens": 945}
+{"qid": "PLAIN-395", "scores": {"ED": 2, "OS": 4, "ES": 0, "OD": 3}, "raw": "[2,4,0,3]", "tokens": 1114}
+{"qid": "PLAIN-407", "scores": {"ED": 5, "OS": 5, "ES": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1042}
+{"qid": "PLAIN-418", "scores": {"ES": 3, "ED": 5, "OS": 4, "OD": 4}, "raw": "[3, 5, 4, 4]", "tokens": 1231}
+{"qid": "PLAIN-430", "scores": {"ED": 4, "OS": 5, "ES": 5, "OD": 5}, "raw": "[4,5,5,5]", "tokens": 1811}
+{"qid": "PLAIN-441", "scores": {"OS": 3, "ED": 0, "OD": 3, "ES": 3}, "raw": "[3,0,3,3]", "tokens": 734}
+{"qid": "PLAIN-457", "scores": {"ED": 1, "ES": 3, "OD": 4, "OS": 0}, "raw": "[1, 3, 4, 0]", "tokens": 875}
+{"qid": "PLAIN-468", "scores": {"ES": 5, "OD": 4, "ED": 3, "OS": 2}, "raw": "[5, 4, 3, 2]", "tokens": 1670}
+{"qid": "PLAIN-478", "scores": {"ED": 3, "ES": 5, "OS": 5, "OD": 1}, "raw": "[3, 5, 5, 1]", "tokens": 1460}
+{"qid": "PLAIN-488", "scores": {"OD": 5, "ES": 5, "OS": 4, "ED": 5}, "raw": "[5, 5, 4, 5]", "tokens": 1329}
+{"qid": "PLAIN-499", "scores": {"OD": 5, "OS": 4, "ES": 3, "ED": 1}, "raw": "[5, 4, 3, 1]", "tokens": 1232}
+{"qid": "PLAIN-510", "scores": {"OS": 0, "ED": 0, "OD": 0, "ES": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1113}
+{"qid": "PLAIN-520", "scores": {"ES": 1, "ED": 0, "OS": 0, "OD": 0}, "raw": "[1, 0, 0, 0]", "tokens": 916}
+{"qid": "PLAIN-541", "scores": {"OS": 0, "ES": 0, "ED": 0, "OD": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1274}
+{"qid": "PLAIN-531", "scores": {"OS": 3, "OD": 4, "ED": 4, "ES": 5}, "raw": "[3, 4, 4, 5]", "tokens": 617}
+{"qid": "PLAIN-551", "scores": {"OD": 1, "ED": 2, "ES": 3, "OS": 0}, "raw": "[1, 2, 3, 0]", "tokens": 1071}
+{"qid": "PLAIN-561", "scores": {"ES": 3, "OD": 4, "ED": 3, "OS": 3}, "raw": "[3, 4, 3, 3]", "tokens": 997}
+{"qid": "PLAIN-571", "scores": {"ED": 5, "ES": 5, "OS": 5, "OD": 4}, "raw": "[5, 5, 5, 4]", "tokens": 1250}
+{"qid": "PLAIN-583", "scores": {"ES": 5, "OD": 0, "ED": 0, "OS": 5}, "raw": "[5, 0, 0, 5]", "tokens": 836}
+{"qid": "PLAIN-593", "scores": {"ED": 2, "OS": 5, "OD": 2, "ES": 5}, "raw": "[2,5,2,5]", "tokens": 831}
+{"qid": "PLAIN-613", "scores": {"ES": 5, "OS": 5, "OD": 5, "ED": 1}, "raw": "[5, 5, 5, 1]", "tokens": 1036}
+{"qid": "PLAIN-603", "scores": {"OD": 4, "ED": 1, "ES": 1, "OS": 5}, "raw": "[4, 1, 1, 5]", "tokens": 1148}
+{"qid": "PLAIN-623", "scores": {"ES": 5, "OS": 2, "OD": 1, "ED": 0}, "raw": "[5, 2, 1, 0]", "tokens": 1008}
+{"qid": "PLAIN-634", "scores": {"OD": 5, "ED": 5, "ES": 0, "OS": 5}, "raw": "[5, 5, 0, 5]", "tokens": 1241}
+{"qid": "PLAIN-645", "scores": {"OD": 3, "ED": 0, "ES": 0, "OS": 5}, "raw": "[3,0,0,5]", "tokens": 1172}
+{"qid": "PLAIN-660", "scores": {"ES": 5, "OD": 5, "OS": 4, "ED": 1}, "raw": "[5, 5, 4, 1]", "tokens": 1516}
+{"qid": "PLAIN-681", "scores": {"ED": 5, "OS": 5, "ES": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1448}
+{"qid": "PLAIN-671", "scores": {"OS": 5, "ES": 0, "ED": 0, "OD": 5}, "raw": "[5, 0, 0, 5]", "tokens": 1202}
+{"qid": "PLAIN-691", "scores": {"OD": 5, "ED": 3, "OS": 4, "ES": 2}, "raw": "[5, 3, 4, 2]", "tokens": 1359}
+{"qid": "PLAIN-721", "scores": {"OD": 5, "ED": 5, "OS": 4, "ES": 4}, "raw": "[5, 5, 4, 4]", "tokens": 1078}
+{"qid": "PLAIN-701", "scores": {"ED": 5, "OS": 0, "ES": 2, "OD": 1}, "raw": "[5, 0, 2, 1]", "tokens": 1598}
+{"qid": "PLAIN-711", "scores": {"OS": 5, "OD": 0, "ED": 4, "ES": 5}, "raw": "[5, 0, 4, 5]", "tokens": 1082}
+{"qid": "PLAIN-731", "scores": {"OD": 4, "ES": 4, "ED": 1, "OS": 5}, "raw": "[4, 4, 1, 5]", "tokens": 1334}
+{"qid": "PLAIN-741", "scores": {"ES": 5, "ED": 5, "OS": 4, "OD": 4}, "raw": "[5, 5, 4, 4]", "tokens": 1110}
+{"qid": "PLAIN-751", "scores": {"OD": 5, "ED": 3, "OS": 4, "ES": 0}, "raw": "[5, 3, 4, 0]", "tokens": 1342}
+{"qid": "PLAIN-761", "scores": {"OD": 5, "ES": 4, "ED": 4, "OS": 5}, "raw": "[5, 4, 4, 5]", "tokens": 1024}
+{"qid": "PLAIN-782", "scores": {"OS": 5, "ED": 0, "OD": 0, "ES": 5}, "raw": "[5, 0, 0, 5]", "tokens": 1316}
+{"qid": "PLAIN-771", "scores": {"ED": 5, "OS": 5, "ES": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 699}
+{"qid": "PLAIN-792", "scores": {"OD": 5, "ES": 0, "OS": 4, "ED": 1}, "raw": "[5, 0, 4, 1]", "tokens": 1416}
+{"qid": "PLAIN-817", "scores": {"ED": 0, "ES": 0, "OD": 0, "OS": 0}, "raw": "[0, 0, 0, 0]", "tokens": 867}
+{"qid": "PLAIN-806", "scores": {"ED": 2, "OS": 5, "ES": 4, "OD": 4}, "raw": "[2, 5, 4, 4]", "tokens": 1234}
+{"qid": "PLAIN-827", "scores": {"OS": 5, "ES": 4, "OD": 2, "ED": 1}, "raw": "[5, 4, 2, 1]", "tokens": 1074}
+{"qid": "PLAIN-838", "scores": {"OS": 5, "ED": 4, "ES": 4, "OD": 5}, "raw": "[5,4,4,5]", "tokens": 1290}
+{"qid": "PLAIN-850", "scores": {"ED": 3, "ES": 4, "OD": 5, "OS": 2}, "raw": "[3, 4, 5, 2]", "tokens": 1194}
+{"qid": "PLAIN-872", "scores": {"ES": 4, "ED": 0, "OD": 0, "OS": 5}, "raw": "[4, 0, 0, 5]", "tokens": 1007}
+{"qid": "PLAIN-882", "scores": {"ED": 2, "OS": 5, "OD": 5, "ES": 2}, "raw": "[2, 5, 5, 2]", "tokens": 1005}
+{"qid": "PLAIN-892", "scores": {"OD": 5, "OS": 5, "ES": 5, "ED": 0}, "raw": "[5, 5, 5, 0]", "tokens": 1364}
+{"qid": "PLAIN-902", "scores": {"ES": 2, "OS": 5, "OD": 1, "ED": 0}, "raw": "[2, 5, 1, 0]", "tokens": 952}
+{"qid": "PLAIN-913", "scores": {"OS": 5, "OD": 4, "ED": 4, "ES": 1}, "raw": "[5, 4, 4, 1]", "tokens": 1117}
+{"qid": "PLAIN-924", "scores": {"OD": 0, "ED": 1, "ES": 3, "OS": 5}, "raw": "[0, 1, 3, 5]", "tokens": 1066}
+{"qid": "PLAIN-934", "scores": {"ES": 5, "ED": 5, "OD": 4, "OS": 3}, "raw": "[5, 5, 4, 3]", "tokens": 1075}
+{"qid": "PLAIN-956", "scores": {"OS": 5, "OD": 4, "ES": 3, "ED": 2}, "raw": "[5, 4, 3, 2]", "tokens": 1097}
+{"qid": "PLAIN-966", "scores": {"OS": 5, "OD": 1, "ED": 0, "ES": 4}, "raw": "[5, 1, 0, 4]", "tokens": 1103}
+{"qid": "PLAIN-977", "scores": {"OS": 2, "ES": 5, "OD": 1, "ED": 0}, "raw": "[2, 5, 1, 0]", "tokens": 1129}
+{"qid": "PLAIN-946", "scores": {"ES": 3, "ED": 2, "OD": 0, "OS": 5}, "raw": "[3, 2, 0, 5]", "tokens": 1190}
+{"qid": "PLAIN-987", "scores": {"ES": 5, "OS": 5, "OD": 1, "ED": 0}, "raw": "[5, 5, 1, 0]", "tokens": 812}
+{"qid": "PLAIN-997", "scores": {"OS": 0, "OD": 0, "ED": 0, "ES": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1420}
+{"qid": "PLAIN-1008", "scores": {"OD": 3, "ES": 0, "OS": 5, "ED": 0}, "raw": "[3, 0, 5, 0]", "tokens": 1053}
+{"qid": "PLAIN-1018", "scores": {"ES": 5, "OD": 5, "ED": 3, "OS": 5}, "raw": "[5, 5, 3, 5]", "tokens": 1348}
+{"qid": "PLAIN-1039", "scores": {"OS": 5, "ED": 5, "ES": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1564}
+{"qid": "PLAIN-1028", "scores": {"OS": 5, "OD": 4, "ED": 3, "ES": 4}, "raw": "[5, 4, 3, 4]", "tokens": 1296}
+{"qid": "PLAIN-1050", "scores": {"OD": 0, "ES": 0, "ED": 3, "OS": 0}, "raw": "[0, 0, 3, 0]", "tokens": 1078}
+{"qid": "PLAIN-1066", "scores": {"OS": 0, "ED": 0, "OD": 0, "ES": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1021}
+{"qid": "PLAIN-1088", "scores": {"ES": 5, "ED": 5, "OD": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1064}
+{"qid": "PLAIN-1098", "scores": {"ES": 1, "OS": 0, "ED": 0, "OD": 5}, "raw": "[1, 0, 0, 5]", "tokens": 1267}
+{"qid": "PLAIN-1109", "scores": {"ES": 5, "OS": 5, "OD": 4, "ED": 3}, "raw": "[5, 5, 4, 3]", "tokens": 1477}
+{"qid": "PLAIN-1119", "scores": {"ES": 2, "OS": 5, "ED": 1, "OD": 0}, "raw": "[2, 5, 1, 0]", "tokens": 1235}
+{"qid": "PLAIN-1130", "scores": {"ES": 5, "OD": 5, "ED": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1076}
+{"qid": "PLAIN-1161", "scores": {"ES": 3, "OD": 2, "ED": 1, "OS": 0}, "raw": "[3, 2, 1, 0]", "tokens": 1156}
+{"qid": "PLAIN-1141", "scores": {"OS": 5, "OD": 5, "ED": 3, "ES": 2}, "raw": "[5, 5, 3, 2]", "tokens": 703}
+{"qid": "PLAIN-1151", "scores": {"ED": 5, "OD": 2, "OS": 1, "ES": 4}, "raw": "[5, 2, 1, 4]", "tokens": 1128}
+{"qid": "PLAIN-1172", "scores": {"OS": 5, "ES": 0, "OD": 5, "ED": 5}, "raw": "[5, 0, 5, 5]", "tokens": 645}
+{"qid": "PLAIN-1193", "scores": {"OD": 5, "ES": 4, "OS": 4, "ED": 5}, "raw": "[5, 4, 4, 5]", "tokens": 1585}
+{"qid": "PLAIN-1183", "scores": {"OS": 5, "ED": 0, "OD": 0, "ES": 4}, "raw": "[5, 0, 0, 4]", "tokens": 965}
+{"qid": "PLAIN-1203", "scores": {"ED": 5, "ES": 4, "OS": 4, "OD": 3}, "raw": "[5, 4, 4, 3]", "tokens": 1128}
+{"qid": "PLAIN-1214", "scores": {"OS": 0, "OD": 0, "ES": 3, "ED": 2}, "raw": "[0, 0, 3, 2]", "tokens": 1215}
+{"qid": "PLAIN-1225", "scores": {"ED": 5, "ES": 5, "OS": 4, "OD": 3}, "raw": "[5, 5, 4, 3]", "tokens": 1366}
+{"qid": "PLAIN-1236", "scores": {"ED": 2, "OS": 5, "OD": 1, "ES": 1}, "raw": "[2, 5, 1, 1]", "tokens": 1456}
+{"qid": "PLAIN-1249", "scores": {"OD": 2, "OS": 3, "ED": 1, "ES": 0}, "raw": "[2, 3, 1, 0]", "tokens": 1173}
+{"qid": "PLAIN-1262", "scores": {"OD": 2, "ES": 5, "ED": 1, "OS": 0}, "raw": "[2, 5, 1, 0]", "tokens": 1400}
+{"qid": "PLAIN-1275", "scores": {"OS": 5, "ED": 2, "ES": 4, "OD": 5}, "raw": "[5, 2, 4, 5]", "tokens": 1514}
+{"qid": "PLAIN-1299", "scores": {"ED": 3, "ES": 4, "OD": 5, "OS": 2}, "raw": "[3, 4, 5, 2]", "tokens": 927}
+{"qid": "PLAIN-1288", "scores": {"OD": 4, "ES": 5, "OS": 3, "ED": 1}, "raw": "[4, 5, 3, 1]", "tokens": 974}
+{"qid": "PLAIN-1309", "scores": {"ES": 2, "OS": 3, "OD": 1, "ED": 0}, "raw": "[2, 3, 1, 0]", "tokens": 1142}
+{"qid": "PLAIN-1320", "scores": {"ES": 5, "OD": 0, "OS": 5, "ED": 1}, "raw": "[5, 0, 5, 1]", "tokens": 1922}
+{"qid": "PLAIN-1342", "scores": {"OS": 5, "OD": 3, "ED": 3, "ES": 3}, "raw": "[5, 3, 3, 3]", "tokens": 1177}
+{"qid": "PLAIN-1331", "scores": {"OD": 1, "ED": 0, "ES": 0, "OS": 2}, "raw": "[1, 0, 0, 2]", "tokens": 960}
+{"qid": "PLAIN-1353", "scores": {"OD": 2, "ES": 4, "OS": 4, "ED": 4}, "raw": "[2,4,4,4]", "tokens": 481}
+{"qid": "PLAIN-1387", "scores": {"ED": 2, "ES": 5, "OD": 1, "OS": 5}, "raw": "[2, 5, 1, 5]", "tokens": 762}
+{"qid": "PLAIN-1374", "scores": {"OD": 3, "OS": 3, "ED": 4, "ES": 5}, "raw": "[3, 3, 4, 5]", "tokens": 1138}
+{"qid": "PLAIN-1363", "scores": {"OS": 5, "ED": 1, "OD": 0, "ES": 5}, "raw": "[5, 1, 0, 5]", "tokens": 1363}
+{"qid": "PLAIN-1398", "scores": {"OD": 5, "OS": 4, "ED": 3, "ES": 2}, "raw": "[5, 4, 3, 2]", "tokens": 1334}
+{"qid": "PLAIN-1419", "scores": {"ES": 1, "OD": 1, "ED": 1, "OS": 5}, "raw": "[1, 1, 1, 5]", "tokens": 1092}
+{"qid": "PLAIN-1409", "scores": {"OD": 4, "ES": 5, "OS": 3, "ED": 2}, "raw": "[4, 5, 3, 2]", "tokens": 729}
+{"qid": "PLAIN-1429", "scores": {"ES": 4, "OS": 5, "OD": 5, "ED": 2}, "raw": "[4,5,5,2]", "tokens": 2216}
+{"qid": "PLAIN-1453", "scores": {"OD": 4, "OS": 3, "ES": 1, "ED": 2}, "raw": "[4, 3, 1, 2]", "tokens": 1028}
+{"qid": "PLAIN-1441", "scores": {"ES": 4, "OD": 4, "OS": 4, "ED": 2}, "raw": "[4, 4, 4, 2]", "tokens": 1311}
+{"qid": "PLAIN-1473", "scores": {"OS": 4, "ED": 4, "ES": 1, "OD": 0}, "raw": "[4, 4, 1, 0]", "tokens": 1155}
+{"qid": "PLAIN-1485", "scores": {"OD": 2, "OS": 5, "ES": 1, "ED": 0}, "raw": "[2,5,1,0]", "tokens": 950}
+{"qid": "PLAIN-1463", "scores": {"ES": 2, "OS": 5, "ED": 3, "OD": 3}, "raw": "[2, 5, 3, 3]", "tokens": 1125}
+{"qid": "PLAIN-1496", "scores": {"ES": 3, "OD": 0, "OS": 5, "ED": 0}, "raw": "[3,0,5,0]", "tokens": 1308}
+{"qid": "PLAIN-1516", "scores": {"OS": 4, "OD": 0, "ED": 5, "ES": 1}, "raw": "[4, 0, 5, 1]", "tokens": 1216}
+{"qid": "PLAIN-1506", "scores": {"ED": 2, "OS": 5, "OD": 5, "ES": 5}, "raw": "[2, 5, 5, 5]", "tokens": 1608}
+{"qid": "PLAIN-1527", "scores": {"OS": 5, "ED": 2, "ES": 1, "OD": 4}, "raw": "[5, 2, 1, 4]", "tokens": 1141}
+{"qid": "PLAIN-1547", "scores": {"ES": 5, "ED": 5, "OS": 4, "OD": 4}, "raw": "[5, 5, 4, 4]", "tokens": 803}
+{"qid": "PLAIN-1537", "scores": {"OS": 5, "ED": 0, "ES": 4, "OD": 3}, "raw": "[5, 0, 4, 3]", "tokens": 1309}
+{"qid": "PLAIN-1579", "scores": {"OD": 3, "ES": 0, "OS": 5, "ED": 1}, "raw": "[3, 0, 5, 1]", "tokens": 1483}
+{"qid": "PLAIN-1557", "scores": {"ED": 2, "OS": 5, "ES": 5, "OD": 5}, "raw": "[2, 5, 5, 5]", "tokens": 1790}
+{"qid": "PLAIN-1568", "scores": {"OS": 5, "OD": 5, "ES": 4, "ED": 5}, "raw": "[5, 5, 4, 5]", "tokens": 772}
+{"qid": "PLAIN-1601", "scores": {"ES": 5, "ED": 4, "OD": 3, "OS": 2}, "raw": "[5, 4, 3, 2]", "tokens": 1377}
+{"qid": "PLAIN-1611", "scores": {"ES": 0, "ED": 0, "OD": 0, "OS": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1170}
+{"qid": "PLAIN-1590", "scores": {"ES": 5, "OS": 4, "ED": 3, "OD": 3}, "raw": "[5, 4, 3, 3]", "tokens": 708}
+{"qid": "PLAIN-1621", "scores": {"ES": 3, "OD": 0, "OS": 0, "ED": 4}, "raw": "[3, 0, 0, 4]", "tokens": 1312}
+{"qid": "PLAIN-1635", "scores": {"ED": 5, "ES": 3, "OS": 4, "OD": 2}, "raw": "[5, 3, 4, 2]", "tokens": 1409}
+{"qid": "PLAIN-1645", "scores": {"OD": 4, "OS": 4, "ES": 4, "ED": 1}, "raw": "[4,4,4,1]", "tokens": 1109}
+{"qid": "PLAIN-1656", "scores": {"ED": 4, "ES": 5, "OD": 4, "OS": 2}, "raw": "[4, 5, 4, 2]", "tokens": 859}
+{"qid": "PLAIN-1667", "scores": {"ED": 3, "OD": 4, "OS": 5, "ES": 2}, "raw": "[3, 4, 5, 2]", "tokens": 906}
+{"qid": "PLAIN-1679", "scores": {"OD": 1, "ES": 5, "ED": 0, "OS": 2}, "raw": "[1, 5, 0, 2]", "tokens": 1102}
+{"qid": "PLAIN-1690", "scores": {"OD": 0, "ED": 0, "ES": 5, "OS": 4}, "raw": "[0, 0, 5, 4]", "tokens": 796}
+{"qid": "PLAIN-1700", "scores": {"ED": 5, "ES": 5, "OS": 1, "OD": 5}, "raw": "[5, 5, 1, 5]", "tokens": 1013}
+{"qid": "PLAIN-1710", "scores": {"ED": 5, "OS": 4, "ES": 5, "OD": 4}, "raw": "[5, 4, 5, 4]", "tokens": 1616}
+{"qid": "PLAIN-1721", "scores": {"ES": 2, "OS": 5, "OD": 3, "ED": 1}, "raw": "[2, 5, 3, 1]", "tokens": 1616}
+{"qid": "PLAIN-1731", "scores": {"ES": 5, "ED": 0, "OD": 5, "OS": 5}, "raw": "[5,0,5,5]", "tokens": 1091}
+{"qid": "PLAIN-1741", "scores": {"ED": 5, "ES": 3, "OS": 4, "OD": 4}, "raw": "[5, 3, 4, 4]", "tokens": 1198}
+{"qid": "PLAIN-1752", "scores": {"OS": 1, "OD": 1, "ED": 1, "ES": 1}, "raw": "[1, 1, 1, 1]", "tokens": 1373}
+{"qid": "PLAIN-1762", "scores": {"ES": 5, "OD": 1, "ED": 0, "OS": 0}, "raw": "[5, 1, 0, 0]", "tokens": 1269}
+{"qid": "PLAIN-1772", "scores": {"OD": 5, "ES": 5, "OS": 4, "ED": 1}, "raw": "[5,5,4,1]", "tokens": 1039}
+{"qid": "PLAIN-1784", "scores": {"ES": 0, "OD": 1, "OS": 2, "ED": 0}, "raw": "[0, 1, 2, 0]", "tokens": 880}
+{"qid": "PLAIN-1794", "scores": {"OS": 5, "ED": 0, "ES": 0, "OD": 1}, "raw": "[5, 0, 0, 1]", "tokens": 970}
+{"qid": "PLAIN-1805", "scores": {"OD": 5, "ED": 5, "ES": 5, "OS": 4}, "raw": "[5, 5, 5, 4]", "tokens": 1333}
+{"qid": "PLAIN-1817", "scores": {"ED": 5, "OS": 5, "OD": 4, "ES": 5}, "raw": "[5, 5, 4, 5]", "tokens": 1529}
+{"qid": "PLAIN-1827", "scores": {"OS": 0, "ED": 0, "ES": 1, "OD": 0}, "raw": "[0, 0, 1, 0]", "tokens": 1033}
+{"qid": "PLAIN-1837", "scores": {"OS": 5, "ED": 4, "OD": 4, "ES": 3}, "raw": "[5, 4, 4, 3]", "tokens": 1249}
+{"qid": "PLAIN-1847", "scores": {"OD": 2, "OS": 5, "ED": 1, "ES": 0}, "raw": "[2, 5, 1, 0]", "tokens": 758}
+{"qid": "PLAIN-1867", "scores": {"ES": 3, "ED": 0, "OS": 5, "OD": 0}, "raw": "[3,0,5,0]", "tokens": 1230}
+{"qid": "PLAIN-1857", "scores": {"OD": 5, "ED": 4, "ES": 4, "OS": 5}, "raw": "[5, 4, 4, 5]", "tokens": 1110}
+{"qid": "PLAIN-1877", "scores": {"ED": 5, "ES": 4, "OD": 4, "OS": 3}, "raw": "[5, 4, 4, 3]", "tokens": 1227}
+{"qid": "PLAIN-1887", "scores": {"OD": 1, "ES": 1, "ED": 1, "OS": 0}, "raw": "[1, 1, 1, 0]", "tokens": 1262}
+{"qid": "PLAIN-1897", "scores": {"ED": 0, "OS": 0, "ES": 0, "OD": 4}, "raw": "[0, 0, 0, 4]", "tokens": 1297}
+{"qid": "PLAIN-1909", "scores": {"OS": 5, "ES": 5, "OD": 3, "ED": 4}, "raw": "[5, 5, 3, 4]", "tokens": 937}
+{"qid": "PLAIN-1919", "scores": {"OD": 5, "ED": 5, "ES": 1, "OS": 5}, "raw": "[5, 5, 1, 5]", "tokens": 1050}
+{"qid": "PLAIN-1940", "scores": {"ES": 2, "OD": 5, "OS": 5, "ED": 5}, "raw": "[2, 5, 5, 5]", "tokens": 893}
+{"qid": "PLAIN-1929", "scores": {"OD": 4, "ED": 5, "OS": 2, "ES": 1}, "raw": "[4, 5, 2, 1]", "tokens": 1332}
+{"qid": "PLAIN-1950", "scores": {"OD": 5, "ES": 4, "ED": 1, "OS": 5}, "raw": "[5, 4, 1, 5]", "tokens": 1184}
+{"qid": "PLAIN-1962", "scores": {"ED": 2, "OS": 4, "ES": 0, "OD": 1}, "raw": "[2, 4, 0, 1]", "tokens": 1648}
+{"qid": "PLAIN-1972", "scores": {"OS": 5, "ED": 0, "ES": 1, "OD": 2}, "raw": "[5, 0, 1, 2]", "tokens": 1435}
+{"qid": "PLAIN-1983", "scores": {"OD": 5, "ED": 5, "ES": 5, "OS": 4}, "raw": "[5, 5, 5, 4]", "tokens": 938}
+{"qid": "PLAIN-1995", "scores": {"ED": 2, "OD": 4, "OS": 3, "ES": 1}, "raw": "[2,4,3,1]", "tokens": 1166}
+{"qid": "PLAIN-2009", "scores": {"OD": 5, "ED": 5, "OS": 5, "ES": 5}, "raw": "[5, 5, 5, 5]", "tokens": 478}
+{"qid": "PLAIN-2019", "scores": {"ES": 3, "OD": 0, "OS": 5, "ED": 3}, "raw": "[3,0,5,3]", "tokens": 851}
+{"qid": "PLAIN-2030", "scores": {"OD": 4, "OS": 5, "ED": 2, "ES": 1}, "raw": "[4, 5, 2, 1]", "tokens": 1287}
+{"qid": "PLAIN-2040", "scores": {"ES": 3, "ED": 0, "OS": 5, "OD": 1}, "raw": "[3, 0, 5, 1]", "tokens": 1202}
+{"qid": "PLAIN-2051", "scores": {"OS": 5, "OD": 5, "ED": 1, "ES": 2}, "raw": "[5, 5, 1, 2]", "tokens": 1301}
+{"qid": "PLAIN-2061", "scores": {"ED": 5, "OS": 5, "OD": 4, "ES": 3}, "raw": "[5, 5, 4, 3]", "tokens": 1215}
+{"qid": "PLAIN-2071", "scores": {"OD": 5, "ED": 3, "ES": 3, "OS": 4}, "raw": "[5, 3, 3, 4]", "tokens": 838}
+{"qid": "PLAIN-2081", "scores": {"ED": 3, "OD": 0, "OS": 5, "ES": 5}, "raw": "[3,0,5,5]", "tokens": 940}
+{"qid": "PLAIN-2102", "scores": {"OS": 5, "ES": 2, "OD": 3, "ED": 2}, "raw": "[5, 2, 3, 2]", "tokens": 1098}
+{"qid": "PLAIN-2092", "scores": {"ED": 5, "OS": 5, "OD": 5, "ES": 4}, "raw": "[5, 5, 5, 4]", "tokens": 1203}
+{"qid": "PLAIN-2124", "scores": {"ES": 5, "OS": 5, "OD": 4, "ED": 0}, "raw": "[5, 5, 4, 0]", "tokens": 1506}
+{"qid": "PLAIN-2113", "scores": {"OS": 3, "OD": 0, "ES": 0, "ED": 0}, "raw": "[3, 0, 0, 0]", "tokens": 942}
+{"qid": "PLAIN-2134", "scores": {"ES": 0, "OD": 0, "OS": 0, "ED": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1088}
+{"qid": "PLAIN-2145", "scores": {"OS": 3, "ES": 5, "OD": 4, "ED": 1}, "raw": "[3, 5, 4, 1]", "tokens": 1289}
+{"qid": "PLAIN-2167", "scores": {"ES": 5, "ED": 5, "OS": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 733}
+{"qid": "PLAIN-2156", "scores": {"ES": 5, "OS": 4, "ED": 4, "OD": 4}, "raw": "[5, 4, 4, 4]", "tokens": 1127}
+{"qid": "PLAIN-2187", "scores": {"ES": 5, "ED": 0, "OS": 5, "OD": 0}, "raw": "[5, 0, 5, 0]", "tokens": 650}
+{"qid": "PLAIN-2177", "scores": {"ES": 5, "ED": 4, "OS": 5, "OD": 5}, "raw": "[5, 4, 5, 5]", "tokens": 1443}
+{"qid": "PLAIN-2197", "scores": {"OD": 5, "ES": 5, "ED": 4, "OS": 5}, "raw": "[5, 5, 4, 5]", "tokens": 1038}
+{"qid": "PLAIN-2209", "scores": {"ED": 0, "ES": 0, "OD": 0, "OS": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1348}
+{"qid": "PLAIN-2220", "scores": {"OD": 5, "ED": 0, "ES": 3, "OS": 4}, "raw": "[5, 0, 3, 4]", "tokens": 1563}
+{"qid": "PLAIN-2230", "scores": {"OS": 5, "ES": 3, "ED": 1, "OD": 0}, "raw": "[5, 3, 1, 0]", "tokens": 1229}
+{"qid": "PLAIN-2240", "scores": {"ES": 5, "OD": 5, "OS": 5, "ED": 5}, "raw": "[5, 5, 5, 5]", "tokens": 2334}
+{"qid": "PLAIN-2250", "scores": {"OD": 2, "OS": 4, "ES": 4, "ED": 1}, "raw": "[2, 4, 4, 1]", "tokens": 1042}
+{"qid": "PLAIN-2261", "scores": {"ES": 2, "OD": 5, "OS": 5, "ED": 3}, "raw": "[2, 5, 5, 3]", "tokens": 1263}
+{"qid": "PLAIN-2271", "scores": {"ES": 0, "ED": 0, "OS": 0, "OD": 0}, "raw": "[0, 0, 0, 0]", "tokens": 1363}
+{"qid": "PLAIN-2281", "scores": {"ES": 3, "ED": 0, "OS": 4, "OD": 1}, "raw": "[3, 0, 4, 1]", "tokens": 1255}
+{"qid": "PLAIN-2291", "scores": {"ES": 0, "OD": 0, "ED": 0, "OS": 5}, "raw": "[0, 0, 0, 5]", "tokens": 578}
+{"qid": "PLAIN-2301", "scores": {"ED": 2, "OS": 4, "ES": 4, "OD": 1}, "raw": "[2,4,4,1]", "tokens": 1255}
+{"qid": "PLAIN-2311", "scores": {"OS": 5, "ED": 0, "OD": 0, "ES": 1}, "raw": "[5, 0, 0, 1]", "tokens": 1059}
+{"qid": "PLAIN-2332", "scores": {"ED": 3, "OD": 5, "ES": 4, "OS": 1}, "raw": "[3, 5, 4, 1]", "tokens": 912}
+{"qid": "PLAIN-2321", "scores": {"ES": 1, "OD": 0, "OS": 0, "ED": 0}, "raw": "[1, 0, 0, 0]", "tokens": 935}
+{"qid": "PLAIN-2343", "scores": {"ED": 2, "ES": 3, "OS": 4, "OD": 1}, "raw": "[2, 3, 4, 1]", "tokens": 1065}
+{"qid": "PLAIN-2354", "scores": {"ES": 5, "ED": 1, "OS": 4, "OD": 5}, "raw": "[5, 1, 4, 5]", "tokens": 1324}
+{"qid": "PLAIN-2364", "scores": {"ED": 5, "OD": 4, "OS": 3, "ES": 2}, "raw": "[5, 4, 3, 2]", "tokens": 1294}
+{"qid": "PLAIN-2386", "scores": {"ES": 3, "OD": 0, "OS": 5, "ED": 0}, "raw": "[3, 0, 5, 0]", "tokens": 1322}
+{"qid": "PLAIN-2375", "scores": {"ES": 0, "OD": 0, "OS": 3, "ED": 0}, "raw": "[0, 0, 3, 0]", "tokens": 986}
+{"qid": "PLAIN-2396", "scores": {"ED": 0, "ES": 0, "OD": 0, "OS": 0}, "raw": "[0, 0, 0, 0]", "tokens": 931}
+{"qid": "PLAIN-2408", "scores": {"OD": 2, "ES": 5, "ED": 3, "OS": 0}, "raw": "[2, 5, 3, 0]", "tokens": 1304}
+{"qid": "PLAIN-2430", "scores": {"ED": 5, "ES": 5, "OS": 5, "OD": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1571}
+{"qid": "PLAIN-2440", "scores": {"ES": 5, "ED": 2, "OD": 1, "OS": 4}, "raw": "[5, 2, 1, 4]", "tokens": 1019}
+{"qid": "PLAIN-2450", "scores": {"ES": 4, "ED": 5, "OD": 3, "OS": 2}, "raw": "[4,5,3,2]", "tokens": 1396}
+{"qid": "PLAIN-2460", "scores": {"OS": 5, "OD": 2, "ES": 4, "ED": 3}, "raw": "[5, 2, 4, 3]", "tokens": 1117}
+{"qid": "PLAIN-2480", "scores": {"ED": 3, "OS": 5, "ES": 4, "OD": 4}, "raw": "[3,5,4,4]", "tokens": 908}
+{"qid": "PLAIN-2470", "scores": {"ED": 2, "OD": 4, "OS": 4, "ES": 1}, "raw": "[2,4,4,1]", "tokens": 1424}
+{"qid": "PLAIN-2490", "scores": {"OD": 2, "OS": 5, "ED": 3, "ES": 3}, "raw": "[2, 5, 3, 3]", "tokens": 966}
+{"qid": "PLAIN-2500", "scores": {"ES": 3, "ED": 3, "OD": 0, "OS": 5}, "raw": "[3, 3, 0, 5]", "tokens": 824}
+{"qid": "PLAIN-2510", "scores": {"OD": 5, "ES": 0, "ED": 0, "OS": 4}, "raw": "[5, 0, 0, 4]", "tokens": 1243}
+{"qid": "PLAIN-2520", "scores": {"OD": 4, "ES": 3, "ED": 4, "OS": 4}, "raw": "[4,3,4,4]", "tokens": 1154}
+{"qid": "PLAIN-2540", "scores": {"OS": 3, "ES": 3, "ED": 1, "OD": 4}, "raw": "[3, 3, 1, 4]", "tokens": 1727}
+{"qid": "PLAIN-2530", "scores": {"ED": 5, "OD": 5, "OS": 5, "ES": 3}, "raw": "[5, 5, 5, 3]", "tokens": 971}
+{"qid": "PLAIN-2550", "scores": {"ED": 4, "OD": 1, "ES": 3, "OS": 5}, "raw": "[4, 1, 3, 5]", "tokens": 878}
+{"qid": "PLAIN-2560", "scores": {"OD": 5, "ED": 0, "ES": 5, "OS": 4}, "raw": "[5, 0, 5, 4]", "tokens": 1526}
+{"qid": "PLAIN-2570", "scores": {"ES": 3, "ED": 4, "OD": 5, "OS": 1}, "raw": "[3, 4, 5, 1]", "tokens": 1619}
+{"qid": "PLAIN-2580", "scores": {"OS": 3, "ES": 0, "ED": 3, "OD": 1}, "raw": "[3,0,3,1]", "tokens": 1176}
+{"qid": "PLAIN-2600", "scores": {"ES": 4, "OD": 3, "ED": 4, "OS": 5}, "raw": "[4,3,4,5]", "tokens": 1138}
+{"qid": "PLAIN-2590", "scores": {"OD": 3, "OS": 4, "ED": 5, "ES": 2}, "raw": "[3, 4, 5, 2]", "tokens": 1070}
+{"qid": "PLAIN-2610", "scores": {"OD": 5, "ED": 1, "ES": 2, "OS": 3}, "raw": "[5, 1, 2, 3]", "tokens": 1407}
+{"qid": "PLAIN-2620", "scores": {"ED": 5, "ES": 1, "OS": 3, "OD": 4}, "raw": "[5, 1, 3, 4]", "tokens": 1286}
+{"qid": "PLAIN-2640", "scores": {"ES": 5, "ED": 4, "OS": 3, "OD": 3}, "raw": "[5, 4, 3, 3]", "tokens": 1601}
+{"qid": "PLAIN-2630", "scores": {"OS": 3, "ES": 3, "ED": 5, "OD": 5}, "raw": "[3, 3, 5, 5]", "tokens": 1189}
+{"qid": "PLAIN-2650", "scores": {"ED": 5, "OD": 5, "OS": 5, "ES": 4}, "raw": "[5, 5, 5, 4]", "tokens": 1089}
+{"qid": "PLAIN-2660", "scores": {"ED": 3, "ES": 4, "OD": 5, "OS": 0}, "raw": "[3, 4, 5, 0]", "tokens": 1286}
+{"qid": "PLAIN-2670", "scores": {"ED": 5, "ES": 5, "OD": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 551}
+{"qid": "PLAIN-2680", "scores": {"ED": 5, "OD": 5, "ES": 5, "OS": 4}, "raw": "[5, 5, 5, 4]", "tokens": 713}
+{"qid": "PLAIN-2690", "scores": {"ES": 3, "ED": 5, "OD": 5, "OS": 5}, "raw": "[3, 5, 5, 5]", "tokens": 1091}
+{"qid": "PLAIN-2710", "scores": {"ES": 5, "OD": 4, "ED": 1, "OS": 3}, "raw": "[5, 4, 1, 3]", "tokens": 749}
+{"qid": "PLAIN-2700", "scores": {"ED": 4, "ES": 1, "OD": 0, "OS": 5}, "raw": "[4, 1, 0, 5]", "tokens": 938}
+{"qid": "PLAIN-2720", "scores": {"OS": 0, "ED": 4, "ES": 0, "OD": 4}, "raw": "[0, 4, 0, 4]", "tokens": 1012}
+{"qid": "PLAIN-2730", "scores": {"ED": 4, "OD": 5, "ES": 5, "OS": 5}, "raw": "[4,5,5,5]", "tokens": 1282}
+{"qid": "PLAIN-2740", "scores": {"OS": 5, "ES": 5, "OD": 5, "ED": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1266}
+{"qid": "PLAIN-2760", "scores": {"ED": 3, "OS": 2, "ES": 5, "OD": 1}, "raw": "[3, 2, 5, 1]", "tokens": 798}
+{"qid": "PLAIN-2750", "scores": {"OD": 2, "OS": 5, "ED": 1, "ES": 1}, "raw": "[2, 5, 1, 1]", "tokens": 1304}
+{"qid": "PLAIN-2770", "scores": {"ES": 3, "OS": 5, "ED": 3, "OD": 5}, "raw": "[3,5,3,5]", "tokens": 1326}
+{"qid": "PLAIN-2790", "scores": {"ES": 3, "ED": 0, "OS": 5, "OD": 0}, "raw": "[3, 0, 5, 0]", "tokens": 1336}
+{"qid": "PLAIN-2780", "scores": {"ES": 5, "OS": 5, "ED": 4, "OD": 4}, "raw": "[5, 5, 4, 4]", "tokens": 1514}
+{"qid": "PLAIN-2800", "scores": {"ED": 4, "OS": 0, "ES": 0, "OD": 5}, "raw": "[4, 0, 0, 5]", "tokens": 1425}
+{"qid": "PLAIN-2810", "scores": {"OS": 5, "ED": 5, "ES": 1, "OD": 5}, "raw": "[5, 5, 1, 5]", "tokens": 1313}
+{"qid": "PLAIN-2820", "scores": {"ED": 4, "OS": 5, "OD": 5, "ES": 3}, "raw": "[4, 5, 5, 3]", "tokens": 1414}
+{"qid": "PLAIN-2830", "scores": {"ES": 5, "OS": 5, "ED": 1, "OD": 4}, "raw": "[5, 5, 1, 4]", "tokens": 1038}
+{"qid": "PLAIN-2840", "scores": {"ED": 0, "ES": 0, "OS": 5, "OD": 5}, "raw": "[0,0,5,5]", "tokens": 1007}
+{"qid": "PLAIN-2860", "scores": {"OS": 5, "OD": 5, "ES": 5, "ED": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1258}
+{"qid": "PLAIN-2850", "scores": {"OS": 4, "ES": 5, "OD": 1, "ED": 0}, "raw": "[4, 5, 1, 0]", "tokens": 1336}
+{"qid": "PLAIN-2870", "scores": {"OS": 5, "OD": 0, "ES": 0, "ED": 0}, "raw": "[5, 0, 0, 0]", "tokens": 1040}
+{"qid": "PLAIN-2880", "scores": {"OD": 0, "ES": 0, "OS": 0, "ED": 0}, "raw": "[0, 0, 0, 0]", "tokens": 597}
+{"qid": "PLAIN-2890", "scores": {"OD": 3, "OS": 3, "ES": 4, "ED": 1}, "raw": "[3, 3, 4, 1]", "tokens": 968}
+{"qid": "PLAIN-2900", "scores": {"OS": 2, "OD": 3, "ES": 4, "ED": 1}, "raw": "[2, 3, 4, 1]", "tokens": 1176}
+{"qid": "PLAIN-2910", "scores": {"ED": 3, "ES": 3, "OS": 5, "OD": 3}, "raw": "[3, 3, 5, 3]", "tokens": 1419}
+{"qid": "PLAIN-2920", "scores": {"ES": 3, "ED": 3, "OD": 4, "OS": 5}, "raw": "[3, 3, 4, 5]", "tokens": 862}
+{"qid": "PLAIN-2930", "scores": {"OD": 5, "ES": 5, "OS": 5, "ED": 1}, "raw": "[5, 5, 5, 1]", "tokens": 1301}
+{"qid": "PLAIN-2940", "scores": {"OS": 4, "ED": 5, "OD": 4, "ES": 3}, "raw": "[4, 5, 4, 3]", "tokens": 1462}
+{"qid": "PLAIN-2950", "scores": {"OD": 1, "OS": 2, "ED": 3, "ES": 0}, "raw": "[1, 2, 3, 0]", "tokens": 1108}
+{"qid": "PLAIN-2960", "scores": {"OS": 5, "OD": 5, "ES": 5, "ED": 4}, "raw": "[5, 5, 5, 4]", "tokens": 1435}
+{"qid": "PLAIN-2970", "scores": {"OS": 5, "ES": 2, "ED": 2, "OD": 2}, "raw": "[5, 2, 2, 2]", "tokens": 1234}
+{"qid": "PLAIN-2981", "scores": {"ES": 5, "OD": 5, "ED": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1391}
+{"qid": "PLAIN-2991", "scores": {"ES": 5, "ED": 0, "OS": 5, "OD": 5}, "raw": "[5, 0, 5, 5]", "tokens": 1701}
+{"qid": "PLAIN-3001", "scores": {"ED": 3, "ES": 4, "OS": 0, "OD": 0}, "raw": "[3, 4, 0, 0]", "tokens": 1617}
+{"qid": "PLAIN-3014", "scores": {"ED": 1, "OS": 2, "OD": 0, "ES": 3}, "raw": "[1, 2, 0, 3]", "tokens": 1095}
+{"qid": "PLAIN-3026", "scores": {"ED": 2, "OD": 0, "ES": 1, "OS": 3}, "raw": "[2, 0, 1, 3]", "tokens": 1078}
+{"qid": "PLAIN-3037", "scores": {"ED": 2, "OS": 3, "ES": 1, "OD": 0}, "raw": "[2, 3, 1, 0]", "tokens": 844}
+{"qid": "PLAIN-3053", "scores": {"ED": 3, "OD": 5, "ES": 4, "OS": 3}, "raw": "[3,5,4,3]", "tokens": 918}
+{"qid": "PLAIN-3063", "scores": {"ES": 3, "ED": 2, "OD": 1, "OS": 1}, "raw": "[3,2,1,1]", "tokens": 1429}
+{"qid": "PLAIN-3074", "scores": {"ED": 5, "OD": 5, "ES": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1580}
+{"qid": "PLAIN-3085", "scores": {"ED": 4, "ES": 4, "OD": 4, "OS": 0}, "raw": "[4,4,4,0]", "tokens": 1082}
+{"qid": "PLAIN-3116", "scores": {"OS": 5, "OD": 0, "ED": 5, "ES": 2}, "raw": "[5, 0, 5, 2]", "tokens": 1361}
+{"qid": "PLAIN-3097", "scores": {"OD": 5, "ED": 5, "ES": 5, "OS": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1061}
+{"qid": "PLAIN-3131", "scores": {"ED": 5, "ES": 0, "OS": 5, "OD": 5}, "raw": "[5, 0, 5, 5]", "tokens": 1245}
+{"qid": "PLAIN-3141", "scores": {"ES": 2, "ED": 3, "OD": 0, "OS": 1}, "raw": "[2, 3, 0, 1]", "tokens": 660}
+{"qid": "PLAIN-3151", "scores": {"ED": 5, "OD": 5, "ES": 1, "OS": 0}, "raw": "[5, 5, 1, 0]", "tokens": 717}
+{"qid": "PLAIN-3161", "scores": {"ED": 5, "OD": 5, "OS": 5, "ES": 5}, "raw": "[5, 5, 5, 5]", "tokens": 1328}
+{"qid": "PLAIN-3171", "scores": {"OS": 3, "OD": 0, "ES": 5, "ED": 4}, "raw": "[3, 0, 5, 4]", "tokens": 879}
+{"qid": "PLAIN-3181", "scores": {"OD": 1, "OS": 0, "ED": 0, "ES": 0}, "raw": "[1,0,0,0]", "tokens": 1120}
+{"qid": "PLAIN-3191", "scores": {"OS": 2, "ED": 4, "OD": 2, "ES": 4}, "raw": "[2, 4, 2, 4]", "tokens": 1055}
+{"qid": "PLAIN-3201", "scores": {"OD": 4, "ES": 2, "ED": 1, "OS": 5}, "raw": "[4,2,1,5]", "tokens": 1250}
+{"qid": "PLAIN-3211", "scores": {"ED": 3, "OS": 0, "OD": 0, "ES": 4}, "raw": "[3, 0, 0, 4]", "tokens": 761}
+{"qid": "PLAIN-3231", "scores": {"OS": 3, "ED": 2, "OD": 3, "ES": 2}, "raw": "[3,2,3,2]", "tokens": 1071}
+{"qid": "PLAIN-3221", "scores": {"ES": 5, "OS": 1, "ED": 3, "OD": 4}, "raw": "[5, 1, 3, 4]", "tokens": 924}
+{"qid": "PLAIN-3241", "scores": {"OS": 4, "ED": 0, "ES": 0, "OD": 5}, "raw": "[4, 0, 0, 5]", "tokens": 1230}
+{"qid": "PLAIN-3261", "scores": {"ED": 3, "ES": 0, "OD": 5, "OS": 5}, "raw": "[3,0,5,5]", "tokens": 1069}
+{"qid": "PLAIN-3251", "scores": {"OD": 5, "ED": 3, "OS": 4, "ES": 1}, "raw": "[5, 3, 4, 1]", "tokens": 1334}
+{"qid": "PLAIN-3271", "scores": {"OD": 4, "OS": 5, "ED": 2, "ES": 1}, "raw": "[4, 5, 2, 1]", "tokens": 1599}
+{"qid": "PLAIN-3292", "scores": {"OD": 3, "ED": 5, "ES": 0, "OS": 5}, "raw": "[3, 5, 0, 5]", "tokens": 1418}
+{"qid": "PLAIN-3281", "scores": {"OD": 2, "OS": 5, "ED": 5, "ES": 5}, "raw": "[2, 5, 5, 5]", "tokens": 1129}
+{"qid": "PLAIN-3302", "scores": {"OD": 2, "ED": 3, "OS": 1, "ES": 0}, "raw": "[2, 3, 1, 0]", "tokens": 1578}
+{"qid": "PLAIN-3322", "scores": {"ED": 5, "OS": 1, "ES": 4, "OD": 5}, "raw": "[5, 1, 4, 5]", "tokens": 1174}
+{"qid": "PLAIN-3312", "scores": {"OD": 5, "ED": 1, "ES": 3, "OS": 5}, "raw": "[5, 1, 3, 5]", "tokens": 1300}
+{"qid": "PLAIN-3352", "scores": {"OD": 1, "OS": 0, "ED": 2, "ES": 4}, "raw": "[1, 0, 2, 4]", "tokens": 1130}
+{"qid": "PLAIN-3332", "scores": {"ES": 5, "OD": 4, "ED": 3, "OS": 1}, "raw": "[5, 4, 3, 1]", "tokens": 1341}
+{"qid": "PLAIN-3342", "scores": {"ES": 3, "ED": 0, "OS": 5, "OD": 1}, "raw": "[3, 0, 5, 1]", "tokens": 1461}
+{"qid": "PLAIN-3362", "scores": {"OS": 5, "OD": 3, "ES": 4, "ED": 5}, "raw": "[5, 3, 4, 5]", "tokens": 852}
+{"qid": "PLAIN-3372", "scores": {"OD": 0, "OS": 5, "ED": 5, "ES": 5}, "raw": "[0, 5, 5, 5]", "tokens": 1073}
+{"qid": "PLAIN-3382", "scores": {"ES": 5, "ED": 5, "OS": 1, "OD": 2}, "raw": "[5, 5, 1, 2]", "tokens": 1110}
+{"qid": "PLAIN-3402", "scores": {"ES": 3, "OD": 5, "ED": 2, "OS": 5}, "raw": "[3,5,2,5]", "tokens": 1028}
+{"qid": "PLAIN-3392", "scores": {"ES": 4, "ED": 3, "OS": 5, "OD": 1}, "raw": "[4,3,5,1]", "tokens": 1010}
+{"qid": "PLAIN-3412", "scores": {"OS": 5, "ED": 1, "ES": 3, "OD": 2}, "raw": "[5, 1, 3, 2]", "tokens": 1133}
+{"qid": "PLAIN-3422", "scores": {"ES": 5, "OD": 2, "ED": 3, "OS": 1}, "raw": "[5, 2, 3, 1]", "tokens": 973}
+{"qid": "PLAIN-3432", "scores": {"OS": 3, "OD": 0, "ES": 4, "ED": 1}, "raw": "[3, 0, 4, 1]", "tokens": 927}
+{"qid": "PLAIN-3442", "scores": {"OS": 3, "ED": 0, "ES": 5, "OD": 2}, "raw": "[3, 0, 5, 2]", "tokens": 1342}
+{"qid": "PLAIN-3472", "scores": {"OS": 0, "ES": 2, "ED": 1, "OD": 3}, "raw": "[0, 2, 1, 3]", "tokens": 1207}
+{"qid": "PLAIN-3452", "scores": {"OS": 5, "ED": 2, "ES": 3, "OD": 1}, "raw": "[5, 2, 3, 1]", "tokens": 939}
+{"qid": "PLAIN-3462", "scores": {"OS": 5, "OD": 3, "ED": 4, "ES": 4}, "raw": "[5, 3, 4, 4]", "tokens": 1197}
