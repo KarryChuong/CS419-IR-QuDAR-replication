@@ -27,7 +27,14 @@ valid because llm_score.py shuffles the four passages with seed = qid): statisti
 positions of (mean score at the position - overall mean)^2; null = each query's four scores placed in a
 random order; 10,000 draws; p = (1 + #{T* >= T}) / (1 + draws).
 
-Outputs in --out: sig_tests.csv/.md, position_tests.csv/.md, check_means.csv, means.csv, summary.json.
+Descriptive (no test): weights_by_source.csv/.md = mean LLM weight and mean score that each of OS, OD, ES,
+ED receives per judge x set x mode, on the ablation sets; it shows which list a fixed passage order favours.
+
+Step 10d runs the same families over 8 sets (the 4 above plus SciFact, NFCorpus, DBPedia-entity, FEVER):
+pass them with --full / --ablation; Holm is then applied over all 8 sets of a family.
+
+Outputs in --out: sig_tests.csv/.md, position_tests.csv/.md, weights_by_source.csv/.md, check_means.csv,
+means.csv, summary.json.
 """
 from __future__ import annotations
 
@@ -55,7 +62,9 @@ MODE_LABEL = {"paper": "paper prompt + shuffled", "paper_fixed": "paper prompt +
 FULL = ["fiqa_test", "scidocs_test", "climate-fever_test", "hotpotqa_test"]
 ABLATION = ["fiqa_test", "scidocs_test", "climate-fever_test", "hotpotqa_test_first1500"]
 LABEL = {"fiqa_test": "FiQA", "scidocs_test": "SciDocs", "climate-fever_test": "Climate-FEVER",
-         "hotpotqa_test": "HotpotQA", "hotpotqa_test_first1500": "HotpotQA (first 1500)"}
+         "hotpotqa_test": "HotpotQA", "hotpotqa_test_first1500": "HotpotQA (first 1500)",
+         "scifact_test": "SciFact", "nfcorpus_test": "NFCorpus", "dbpedia-entity_test": "DBPedia-entity",
+         "fever_test": "FEVER", "fever_test_first1500": "FEVER (first 1500)"}
 METRICS = [(0, "Recall@10"), (1, "nDCG@10")]
 EFFECTS = [("paper_fixed", "paper", "order | paper prompt: fixed - shuffled"),
            ("code", "code_shuffle", "order | code prompt: fixed - shuffled"),
@@ -194,7 +203,7 @@ def main() -> None:
     for s in sets:
         by_run.setdefault(s.split("_first")[0], []).append(s)
 
-    perq, means, checks, pos_rows, missing = {}, [], [], [], []
+    perq, means, checks, pos_rows, src_rows, missing = {}, [], [], [], [], []
     for run, run_sets in by_run.items():
         dataset, split = run.rsplit("_", 1)
         log(f"{run}: loading retrieval_result.json")
@@ -224,8 +233,15 @@ def main() -> None:
                     if lacking:
                         print(f"  ! {j} {mode} {s}: {lacking} queries without scores -> equal weights", flush=True)
                     methods[f"{j}|{mode}"] = sc
-                    if mode in SHUFFLED:
-                        have = [q for q in qids if q in sc]
+                    R = [sc[q] for q in qids if q in sc]
+                    if s in args.ablation and R:
+                        W = np.stack([llm_weights(sc[q]) if q in sc else np.full(4, 0.25) for q in qids])
+                        R = np.stack(R)
+                        src_rows.append({"judge": j, "set": LABEL.get(s, s), "mode": MODE_LABEL[mode], "queries": len(qids),
+                                         **{f"weight {x}": round(float(v), 4) for x, v in zip(SRC, W.mean(0))},
+                                         **{f"score {x}": round(float(v), 3) for x, v in zip(SRC, R.mean(0))}})
+                    have = [q for q in qids if q in sc]
+                    if mode in SHUFFLED and have:
                         S = np.stack([sc[q] for q in have])
                         X = np.stack([[sc[q][SRC.index(src)] for src in prompt_order(mode, q)] for q in have])
                         pos_rows.append({"judge": j, "set": s, "mode": mode, "S": S, "X": X})
@@ -320,6 +336,9 @@ def main() -> None:
     (out / "sig_tests.md").write_text(to_md(tests))
     positions.to_csv(out / "position_tests.csv", index=False)
     (out / "position_tests.md").write_text(to_md(positions))
+    src_df = pd.DataFrame(src_rows)
+    src_df.to_csv(out / "weights_by_source.csv", index=False)
+    (out / "weights_by_source.md").write_text(to_md(src_df))
     summary = {"n_boot": args.n_boot, "n_perm": args.n_perm, "missing": missing,
                "max_check_diff": float(checks["max |diff|"].max()) if len(checks) else None}
     if len(tests):
@@ -344,6 +363,9 @@ def main() -> None:
         print("\nPosition randomisation tests (Holm per judge)")
         print(positions[["judge", "set", "mode", "queries", "pos 1", "pos 2", "pos 3", "pos 4", "T", "p", "p Holm",
                          "sig (Holm p<0.05)"]].to_string(index=False))
+    if len(src_df):
+        print("\nMean LLM weight per source (ablation sets; fixed order = ES, OS, ED, OD)")
+        print(src_df[["judge", "set", "mode"] + [f"weight {x}" for x in SRC]].to_string(index=False))
     print("\n" + json.dumps(summary, indent=2, ensure_ascii=False))
     log(f"saved to {out}")
 
