@@ -1,0 +1,77 @@
+set,method,ours Recall@10,reported,ours nDCG@10,reported nDCG,source,max |diff|
+fiqa_test,Equal,0.3333,0.3333,0.2512,0.2512,eval_results.csv,0.0
+fiqa_test,gpt-4o-mini|paper,0.3281,0.3281,0.2539,0.2539,llm_eval.csv (gpt-4o-mini),0.0
+fiqa_test,gpt-4o-mini|paper_fixed,0.3423,0.3423,0.2712,0.2712,llm_eval.csv (gpt-4o-mini),0.0
+fiqa_test,gpt-4o-mini|code_shuffle,0.3386,0.3386,0.2624,0.2624,llm_eval.csv (gpt-4o-mini),0.0
+fiqa_test,gpt-4o-mini|code,0.3522,0.3522,0.2748,0.2748,llm_eval.csv (gpt-4o-mini),0.0
+fiqa_test,Qwen2.5-7B|paper,0.3201,0.3201,0.2469,0.2469,llm_eval.csv (Qwen2.5-7B),0.0
+fiqa_test,Qwen2.5-7B|paper_fixed,0.3058,0.3058,0.2398,0.2398,llm_eval.csv (Qwen2.5-7B),0.0
+fiqa_test,Qwen2.5-7B|code_shuffle,0.3423,0.3423,0.2601,0.2601,llm_eval.csv (Qwen2.5-7B),0.0
+fiqa_test,Qwen2.5-7B|code,0.336,0.336,0.2617,0.2617,llm_eval.csv (Qwen2.5-7B),0.0
+scidocs_test,Equal,0.1901,0.1901,0.1793,0.1793,eval_results.csv,0.0
+scidocs_test,gpt-4o-mini|paper,0.1899,0.1899,0.1799,0.1799,llm_eval.csv (gpt-4o-mini),0.0
+scidocs_test,gpt-4o-mini|paper_fixed,0.1906,0.1906,0.1809,0.1809,llm_eval.csv (gpt-4o-mini),0.0
+scidocs_test,gpt-4o-mini|code_shuffle,0.192,0.192,0.1823,0.1823,llm_eval.csv (gpt-4o-mini),0.0
+scidocs_test,gpt-4o-mini|code,0.1889,0.189,0.1806,0.1806,llm_eval.csv (gpt-4o-mini),0.0001
+scidocs_test,Qwen2.5-7B|paper,0.1877,0.1877,0.1809,0.1809,llm_eval.csv (Qwen2.5-7B),0.0
+scidocs_test,Qwen2.5-7B|paper_fixed,0.1888,0.1889,0.1799,0.1799,llm_eval.csv (Qwen2.5-7B),0.0001
+scidocs_test,Qwen2.5-7B|code_shuffle,0.19,0.19,0.1811,0.1811,llm_eval.csv (Qwen2.5-7B),0.0
+scidocs_test,Qwen2.5-7B|code,0.1892,0.1893,0.1813,0.1813,llm_eval.csv (Qwen2.5-7B),0.0001
+climate-fever_test,Equal,0.2504,0.2504,0.2047,0.2047,eval_results.csv,0.0
+climate-fever_test,gpt-4o-mini|paper,0.2567,0.2567,0.2093,0.2093,llm_eval.csv (gpt-4o-mini),0.0
+climate-fever_test,gpt-4o-mini|paper_fixed,0.2552,0.2552,0.2096,0.2096,llm_eval.csv (gpt-4o-mini),0.0
+climate-fever_test,gpt-4o-mini|code_shuffle,0.2609,0.2609,0.2146,0.2146,llm_eval.csv (gpt-4o-mini),0.0
+climate-fever_test,gpt-4o-mini|code,0.2591,0.2591,0.2145,0.2145,llm_eval.csv (gpt-4o-mini),0.0
+climate-fever_test,Qwen2.5-7B|paper,0.244,0.244,0.2023,0.2023,llm_eval.csv (Qwen2.5-7B),0.0
+climate-fever_test,Qwen2.5-7B|paper_fixed,0.2352,0.2352,0.1943,0.1943,llm_eval.csv (Qwen2.5-7B),0.0
+climate-fever_test,Qwen2.5-7B|code_shuffle,0.2511,0.2511,0.2059,0.2059,llm_eval.csv (Qwen2.5-7B),0.0
+climate-fever_test,Qwen2.5-7B|code,0.2388,0.2388,0.1978,0.1978,llm_eval.csv (Qwen2.5-7B),0.0
+hotpotqa_test,Equal,0.6827,0.6828,0.6318,0.6322,eval_results.csv,0.0004
+hotpotqa_test,gpt-4o-mini|paper,0.6704,0.6704,0.6355,0.6355,llm_eval.csv (gpt-4o-mini),0.0
+hotpotqa_test,Qwen2.5-7B|paper,0.6703,0.6703,0.6269,0.6269,llm_eval.csv (Qwen2.5-7B),0.0
+hotpotqa_test_first1500,gpt-4o-mini|paper,0.6737,0.6737,0.6366,0.6366,llm_eval.csv (gpt-4o-mini),0.0
+hotpotqa_test_first1500,gpt-4o-mini|paper_fixed,0.6823,0.6823,0.644,0.644,llm_eval.csv (gpt-4o-mini),0.0
+hotpotqa_test_first1500,gpt-4o-mini|code_shuffle,0.6927,0.6927,0.6557,0.6557,llm_eval.csv (gpt-4o-mini),0.0
+hotpotqa_test_first1500,gpt-4o-mini|code,0.6883,0.6883,0.6525,0.6525,llm_eval.csv (gpt-4o-mini),0.0
+hotpotqa_test_first1500,Qwen2.5-7B|paper,0.6733,0.6733,0.6246,0.6246,llm_eval.csv (Qwen2.5-7B),0.0
+hotpotqa_test_first1500,Qwen2.5-7B|paper_fixed,0.675,0.675,0.6234,0.6234,llm_eval.csv (Qwen2.5-7B),0.0
+hotpotqa_test_first1500,Qwen2.5-7B|code_shuffle,0.6803,0.6803,0.6456,0.6456,llm_eval.csv (Qwen2.5-7B),0.0
+hotpotqa_test_first1500,Qwen2.5-7B|code,0.688,0.688,0.6481,0.6481,llm_eval.csv (Qwen2.5-7B),0.0
+scifact_test,Equal,0.8649,0.8649,0.7231,0.7231,eval_results.csv,0.0
+scifact_test,gpt-4o-mini|paper,0.8643,0.8643,0.7226,0.7226,llm_eval.csv (gpt-4o-mini),0.0
+scifact_test,gpt-4o-mini|paper_fixed,0.8684,0.8684,0.7294,0.7294,llm_eval.csv (gpt-4o-mini),0.0
+scifact_test,gpt-4o-mini|code_shuffle,0.8659,0.8659,0.7287,0.7287,llm_eval.csv (gpt-4o-mini),0.0
+scifact_test,gpt-4o-mini|code,0.8676,0.8676,0.7346,0.7346,llm_eval.csv (gpt-4o-mini),0.0
+scifact_test,Qwen2.5-7B|paper,0.8693,0.8693,0.7174,0.7174,llm_eval.csv (Qwen2.5-7B),0.0
+scifact_test,Qwen2.5-7B|paper_fixed,0.8668,0.8668,0.7195,0.7195,llm_eval.csv (Qwen2.5-7B),0.0
+scifact_test,Qwen2.5-7B|code_shuffle,0.8726,0.8726,0.733,0.733,llm_eval.csv (Qwen2.5-7B),0.0
+scifact_test,Qwen2.5-7B|code,0.8593,0.8593,0.7256,0.7256,llm_eval.csv (Qwen2.5-7B),0.0
+nfcorpus_test,Equal,0.1726,0.1726,0.3531,0.3528,eval_results.csv,0.0003
+nfcorpus_test,gpt-4o-mini|paper,0.1756,0.1756,0.3551,0.3548,llm_eval.csv (gpt-4o-mini),0.0003
+nfcorpus_test,gpt-4o-mini|paper_fixed,0.1763,0.1763,0.3596,0.3593,llm_eval.csv (gpt-4o-mini),0.0003
+nfcorpus_test,gpt-4o-mini|code_shuffle,0.1771,0.177,0.3602,0.36,llm_eval.csv (gpt-4o-mini),0.0002
+nfcorpus_test,gpt-4o-mini|code,0.1757,0.1757,0.3595,0.3592,llm_eval.csv (gpt-4o-mini),0.0003
+nfcorpus_test,Qwen2.5-7B|paper,0.1724,0.1724,0.3459,0.3459,llm_eval.csv (Qwen2.5-7B),0.0
+nfcorpus_test,Qwen2.5-7B|paper_fixed,0.1749,0.1749,0.3485,0.3478,llm_eval.csv (Qwen2.5-7B),0.0007
+nfcorpus_test,Qwen2.5-7B|code_shuffle,0.1758,0.1758,0.3581,0.3579,llm_eval.csv (Qwen2.5-7B),0.0002
+nfcorpus_test,Qwen2.5-7B|code,0.173,0.173,0.3508,0.3508,llm_eval.csv (Qwen2.5-7B),0.0
+dbpedia-entity_test,Equal,0.2595,0.2595,0.3978,0.3978,eval_results.csv,0.0
+dbpedia-entity_test,gpt-4o-mini|paper,0.2466,0.2466,0.3962,0.3962,llm_eval.csv (gpt-4o-mini),0.0
+dbpedia-entity_test,gpt-4o-mini|paper_fixed,0.2518,0.2518,0.4029,0.403,llm_eval.csv (gpt-4o-mini),0.0001
+dbpedia-entity_test,gpt-4o-mini|code_shuffle,0.2494,0.2494,0.405,0.405,llm_eval.csv (gpt-4o-mini),0.0
+dbpedia-entity_test,gpt-4o-mini|code,0.253,0.253,0.4086,0.4086,llm_eval.csv (gpt-4o-mini),0.0
+dbpedia-entity_test,Qwen2.5-7B|paper,0.25,0.25,0.4009,0.4009,llm_eval.csv (Qwen2.5-7B),0.0
+dbpedia-entity_test,Qwen2.5-7B|paper_fixed,0.2518,0.2518,0.3966,0.3966,llm_eval.csv (Qwen2.5-7B),0.0
+dbpedia-entity_test,Qwen2.5-7B|code_shuffle,0.2554,0.2554,0.4066,0.4066,llm_eval.csv (Qwen2.5-7B),0.0
+dbpedia-entity_test,Qwen2.5-7B|code,0.2502,0.2502,0.4055,0.4055,llm_eval.csv (Qwen2.5-7B),0.0
+fever_test,Equal,0.7901,0.7901,0.6355,0.6357,eval_results.csv,0.0002
+fever_test,gpt-4o-mini|paper,0.7871,0.7871,0.652,0.652,llm_eval.csv (gpt-4o-mini),0.0
+fever_test,Qwen2.5-7B|paper,0.783,0.783,0.6419,0.6419,llm_eval.csv (Qwen2.5-7B),0.0
+fever_test_first1500,gpt-4o-mini|paper,0.7864,0.7864,0.6531,0.6531,llm_eval.csv (gpt-4o-mini),0.0
+fever_test_first1500,gpt-4o-mini|paper_fixed,0.7922,0.7922,0.6585,0.6585,llm_eval.csv (gpt-4o-mini),0.0
+fever_test_first1500,gpt-4o-mini|code_shuffle,0.7946,0.7946,0.6661,0.6661,llm_eval.csv (gpt-4o-mini),0.0
+fever_test_first1500,gpt-4o-mini|code,0.798,0.798,0.6675,0.6675,llm_eval.csv (gpt-4o-mini),0.0
+fever_test_first1500,Qwen2.5-7B|paper,0.7819,0.7819,0.6471,0.6471,llm_eval.csv (Qwen2.5-7B),0.0
+fever_test_first1500,Qwen2.5-7B|paper_fixed,0.7678,0.7678,0.6297,0.6297,llm_eval.csv (Qwen2.5-7B),0.0
+fever_test_first1500,Qwen2.5-7B|code_shuffle,0.7857,0.7857,0.659,0.659,llm_eval.csv (Qwen2.5-7B),0.0
+fever_test_first1500,Qwen2.5-7B|code,0.7755,0.7755,0.6477,0.6477,llm_eval.csv (Qwen2.5-7B),0.0

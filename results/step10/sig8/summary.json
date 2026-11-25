@@ -1,0 +1,38 @@
+{
+  "n_boot": 10000,
+  "n_perm": 10000,
+  "missing": [],
+  "max_check_diff": 0.0007,
+  "families": {
+    "F1 llm_vs_equal | Qwen2.5-7B": {
+      "tests": 32,
+      "significant": 4,
+      "significant, A > B": 2,
+      "significant, A < B": 2
+    },
+    "F1 llm_vs_equal | gpt-4o-mini": {
+      "tests": 32,
+      "significant": 6,
+      "significant, A > B": 5,
+      "significant, A < B": 1
+    },
+    "F2 judge | Qwen2.5-7B - gpt-4o-mini": {
+      "tests": 16,
+      "significant": 3,
+      "significant, A > B": 0,
+      "significant, A < B": 3
+    },
+    "F3 ablation | Qwen2.5-7B": {
+      "tests": 64,
+      "significant": 11,
+      "significant, A > B": 8,
+      "significant, A < B": 3
+    },
+    "F3 ablation | gpt-4o-mini": {
+      "tests": 64,
+      "significant": 5,
+      "significant, A > B": 5,
+      "significant, A < B": 0
+    }
+  }
+}
