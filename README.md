@@ -23,24 +23,24 @@ Repo gồm hai phần:
 
 Mọi phép so: bootstrap ghép cặp 10.000 lần và t-test ghép cặp (lấy p lớn hơn), hiệu chỉnh Holm trong từng họ kiểm định đặt trước khi xem kết quả. Chi phí API OpenAI: đồ án dưới 10 USD, Step 10 là 4,42 USD; GPU dùng T4 miễn phí của Kaggle.
 
-## Quy trình thực hiện
+## Trạng thái
 
-| Step | Nội dung |
-|---|---|
-| 0 | Chuẩn bị dữ liệu, môi trường |
-| 1 | BM25 (bm25s), encode Contriever, sinh query mở rộng bằng LLaMA 3.1-8B-Instruct |
-| 2 | 4 danh sách truy xuất OS / OD / ES / ED (top-1000) |
-| 3 | Fusion và baseline: Static Avg/UB, RRF, Equal, Confidence, DAT |
-| 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự |
-| 5 | Phân tích: Table 8, Figure 2–5 |
-| 6 | Học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê |
-| 7 | Đánh giá RAG end-to-end (Table 3) |
-| 8 | Demo chạy trên laptop (FiQA) |
-| 9 | Báo cáo đồ án |
-| 10a–10b | Thêm SciFact, NFCorpus, FEVER, DBPedia-entity: dữ liệu, encode, query mở rộng; LLM chấm thứ hai (Qwen2.5-7B) trên 4 bộ cũ |
-| 10c | Truy xuất, lưới trọng số và chấm bằng 2 LLM trên 4 bộ mới |
-| 10d-1 | Kiểm định nhánh LLM trên 8 bộ (họ F1–F4) |
-| 10d-2 | Static-train, mô hình học trọng số, đường cong số nhãn trên 8 bộ (họ S0–S3) |
+| Step | Nội dung | |
+|---|---|---|
+| 0 | Chuẩn bị dữ liệu, môi trường | ✅ |
+| 1 | BM25 (bm25s), encode Contriever, sinh query mở rộng bằng LLaMA 3.1-8B-Instruct | ✅ |
+| 2 | 4 danh sách truy xuất OS / OD / ES / ED (top-1000) | ✅ |
+| 3 | Fusion và baseline: Static Avg/UB, RRF, Equal, Confidence, DAT | ✅ |
+| 4 | QuDAR-llm (gpt-4o-mini) + ablation prompt × thứ tự | ✅ |
+| 5 | Phân tích: Table 8, Figure 2–5 | ✅ |
+| 6 | Học trọng số theo query, khử thiên lệch vị trí, kiểm định thống kê | ✅ |
+| 7 | Đánh giá RAG end-to-end (Table 3) | ✅ |
+| 8 | Demo chạy trên laptop (FiQA) | ✅ |
+| 9 | Báo cáo đồ án | ✅ |
+| 10a–10b | Thêm SciFact, NFCorpus, FEVER, DBPedia-entity: dữ liệu, encode, query mở rộng; LLM chấm thứ hai (Qwen2.5-7B) trên 4 bộ cũ | ✅ |
+| 10c | Truy xuất, lưới trọng số và chấm bằng 2 LLM trên 4 bộ mới | ✅ |
+| 10d-1 | Kiểm định nhánh LLM trên 8 bộ (họ F1–F4) | ✅ |
+| 10d-2 | Static-train, mô hình học trọng số, đường cong số nhãn trên 8 bộ (họ S0–S3) | ✅ |
 
 ## Quy trình truy xuất
 
@@ -48,7 +48,7 @@ Mọi phép so: bootstrap ghép cặp 10.000 lần và t-test ghép cặp (lấy
 |---|---|---|
 | Tài liệu | 8 corpus BEIR, ghép `title + text` | như bên cạnh |
 | Phân tích tài liệu | chữ thường, tách từ regex, bỏ stopword tiếng Anh, stemming Snowball (PyStemmer) | WordPiece, tối đa 512 token, tiền tố `passage: ` (giữ như code công bố), mean pooling, chuẩn hóa L2 → vector 768 chiều |
-| Lập chỉ mục | inverted index của bm25s (ma trận thưa term × tài liệu, trọng số BM25 tính sẵn, k1 = 1.5, b = 0.75) | FAISS IndexFlatIP cho bộ nhỏ (FiQA, SciDocs, SciFact, NFCorpus); shard fp16 tìm trên GPU cho bộ hàng triệu tài liệu (Climate-FEVER, HotpotQA, DBPedia-entity, FEVER) |
+| Lập chỉ mục | inverted index của bm25s (ma trận thưa term × tài liệu, trọng số BM25 tính sẵn, k1 = 1.5, b = 0.75) | FAISS IndexFlatIP (FiQA, SciDocs); shard fp16 tìm trên GPU cho 6 bộ còn lại (Climate-FEVER, HotpotQA và cả 4 bộ của Step 10) |
 | Phân tích câu truy vấn | cùng bộ tách từ + **mở rộng query bằng LLaMA 3.1-8B-Instruct** | tiền tố `query: ` (gốc), `passage: ` (mở rộng) |
 | Truy xuất chỉ mục | posting list → điểm BM25, top-1000 | tích vô hướng toàn bộ, top-1000 |
 | **Xếp hạng (trọng tâm)** | chuẩn hóa min-max rồi trộn 4 danh sách: Static, RRF, Equal, Confidence, LLM, DAT, Static-train, trọng số học được | |
