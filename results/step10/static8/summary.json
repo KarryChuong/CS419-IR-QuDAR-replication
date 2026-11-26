@@ -1,0 +1,37 @@
+{
+  "n_boot": 10000,
+  "draws": 100,
+  "position_bias_train": {
+    "1": 0.5505813349942907,
+    "2": -0.010649157410290933,
+    "3": -0.12781584137859436,
+    "4": -0.412116336205405
+  },
+  "max_check_diff": 0.0004,
+  "families": {
+    "S0 confidence_vs_equal": {
+      "tests": 16,
+      "significant": 2,
+      "significant, A > B": 2,
+      "significant, A < B": 0
+    },
+    "S1 static_in_domain": {
+      "tests": 30,
+      "significant": 18,
+      "significant, A > B": 18,
+      "significant, A < B": 0
+    },
+    "S2 static_transfer": {
+      "tests": 16,
+      "significant": 8,
+      "significant, A > B": 5,
+      "significant, A < B": 3
+    },
+    "S3 learned_vs_static": {
+      "tests": 32,
+      "significant": 7,
+      "significant, A > B": 5,
+      "significant, A < B": 2
+    }
+  }
+}

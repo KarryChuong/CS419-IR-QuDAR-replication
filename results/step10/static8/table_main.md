@@ -1,0 +1,87 @@
+| dataset        | method                   |   queries |   Recall@10 |   nDCG@10 |    P@1 |
+|:---------------|:-------------------------|----------:|------------:|----------:|-------:|
+| FiQA           | QuDAR-simple (Equal)     |       648 |      0.3333 |    0.2512 | 0.2099 |
+| FiQA           | QuDAR-confidence         |       648 |      0.3354 |    0.2525 | 0.213  |
+| FiQA           | QuDAR-llm                |       648 |      0.3281 |    0.2539 | 0.2099 |
+| FiQA           | QuDAR-llm-debiased       |       648 |      0.3344 |    0.2586 | 0.2222 |
+| FiQA           | Static-train [in-domain] |       648 |      0.3584 |    0.2843 | 0.2515 |
+| FiQA           | Static-train [other]     |       648 |      0.3506 |    0.2791 | 0.2485 |
+| FiQA           | Static-train [all]       |       648 |      0.3574 |    0.2797 | 0.2423 |
+| FiQA           | Model A [all]            |       648 |      0.3542 |    0.2849 | 0.2577 |
+| FiQA           | Model B [all]            |       648 |      0.3517 |    0.2841 | 0.2608 |
+| FiQA           | Static UB (oracle)       |       648 |      0.3598 |    0.2855 | 0.2485 |
+| FiQA           | Query-wise UB (oracle)   |       648 |      0.4944 |    0.4321 | 0.4491 |
+| SciDocs        | QuDAR-simple (Equal)     |      1000 |      0.1901 |    0.1793 | 0.203  |
+| SciDocs        | QuDAR-confidence         |      1000 |      0.1907 |    0.1798 | 0.204  |
+| SciDocs        | QuDAR-llm                |      1000 |      0.1899 |    0.1799 | 0.206  |
+| SciDocs        | QuDAR-llm-debiased       |      1000 |      0.1903 |    0.1801 | 0.205  |
+| SciDocs        | Static-train [other]     |      1000 |      0.1853 |    0.1754 | 0.195  |
+| SciDocs        | Static-train [all]       |      1000 |      0.1853 |    0.1754 | 0.195  |
+| SciDocs        | Model A [all]            |      1000 |      0.1804 |    0.1688 | 0.183  |
+| SciDocs        | Model B [all]            |      1000 |      0.1815 |    0.1721 | 0.195  |
+| SciDocs        | Static UB (oracle)       |      1000 |      0.1923 |    0.1823 | 0.206  |
+| SciDocs        | Query-wise UB (oracle)   |      1000 |      0.2749 |    0.281  | 0.393  |
+| Climate-FEVER  | QuDAR-simple (Equal)     |      1535 |      0.2504 |    0.2047 | 0.1909 |
+| Climate-FEVER  | QuDAR-confidence         |      1535 |      0.2507 |    0.2043 | 0.1896 |
+| Climate-FEVER  | QuDAR-llm                |      1535 |      0.2567 |    0.2093 | 0.2013 |
+| Climate-FEVER  | QuDAR-llm-debiased       |      1535 |      0.2572 |    0.2087 | 0.1987 |
+| Climate-FEVER  | Static-train [other]     |      1535 |      0.275  |    0.2248 | 0.2098 |
+| Climate-FEVER  | Static-train [all]       |      1535 |      0.275  |    0.2248 | 0.2098 |
+| Climate-FEVER  | Model A [all]            |      1535 |      0.2666 |    0.2193 | 0.202  |
+| Climate-FEVER  | Model B [all]            |      1535 |      0.2674 |    0.218  | 0.1961 |
+| Climate-FEVER  | Static UB (oracle)       |      1535 |      0.291  |    0.2352 | 0.2091 |
+| Climate-FEVER  | Query-wise UB (oracle)   |      1535 |      0.3734 |    0.3471 | 0.4059 |
+| HotpotQA       | QuDAR-simple (Equal)     |      7405 |      0.6827 |    0.6318 | 0.6782 |
+| HotpotQA       | QuDAR-confidence         |      7405 |      0.6853 |    0.6366 | 0.6887 |
+| HotpotQA       | QuDAR-llm                |      7405 |      0.6704 |    0.6355 | 0.7168 |
+| HotpotQA       | QuDAR-llm-debiased       |      7405 |      0.6714 |    0.6369 | 0.7184 |
+| HotpotQA       | Static-train [in-domain] |      7405 |      0.7041 |    0.6634 | 0.7377 |
+| HotpotQA       | Static-train [other]     |      7405 |      0.659  |    0.6074 | 0.6562 |
+| HotpotQA       | Static-train [all]       |      7405 |      0.6813 |    0.6426 | 0.7202 |
+| HotpotQA       | Model A [all]            |      7405 |      0.6935 |    0.659  | 0.7448 |
+| HotpotQA       | Model B [all]            |      7405 |      0.6965 |    0.6657 | 0.7562 |
+| HotpotQA       | Static UB (oracle)       |      7405 |      0.7041 |    0.6634 | 0.7377 |
+| HotpotQA       | Query-wise UB (oracle)   |      7405 |      0.7708 |    0.7637 | 0.8806 |
+| SciFact        | QuDAR-simple (Equal)     |       300 |      0.8649 |    0.7231 | 0.5733 |
+| SciFact        | QuDAR-confidence         |       300 |      0.8643 |    0.724  | 0.5767 |
+| SciFact        | QuDAR-llm                |       300 |      0.8643 |    0.7226 | 0.5733 |
+| SciFact        | QuDAR-llm-debiased       |       300 |      0.8643 |    0.7237 | 0.5733 |
+| SciFact        | Static-train [in-domain] |       300 |      0.8718 |    0.7323 | 0.6    |
+| SciFact        | Static-train [other]     |       300 |      0.8609 |    0.7235 | 0.5833 |
+| SciFact        | Static-train [all]       |       300 |      0.8609 |    0.7239 | 0.5833 |
+| SciFact        | Model A [all]            |       300 |      0.8605 |    0.7234 | 0.5833 |
+| SciFact        | Model B [all]            |       300 |      0.8722 |    0.7306 | 0.59   |
+| SciFact        | Static UB (oracle)       |       300 |      0.8758 |    0.7418 | 0.6067 |
+| SciFact        | Query-wise UB (oracle)   |       300 |      0.9252 |    0.8454 | 0.7733 |
+| NFCorpus       | QuDAR-simple (Equal)     |       323 |      0.1726 |    0.3531 | 0.4613 |
+| NFCorpus       | QuDAR-confidence         |       323 |      0.1725 |    0.3529 | 0.4675 |
+| NFCorpus       | QuDAR-llm                |       323 |      0.1756 |    0.3551 | 0.4551 |
+| NFCorpus       | QuDAR-llm-debiased       |       323 |      0.1785 |    0.3592 | 0.4675 |
+| NFCorpus       | Static-train [in-domain] |       323 |      0.1779 |    0.3603 | 0.4706 |
+| NFCorpus       | Static-train [other]     |       323 |      0.1765 |    0.3623 | 0.4861 |
+| NFCorpus       | Static-train [all]       |       323 |      0.1766 |    0.3626 | 0.4892 |
+| NFCorpus       | Model A [all]            |       323 |      0.1777 |    0.3557 | 0.4613 |
+| NFCorpus       | Model B [all]            |       323 |      0.1806 |    0.3576 | 0.4613 |
+| NFCorpus       | Static UB (oracle)       |       323 |      0.1823 |    0.3655 | 0.483  |
+| NFCorpus       | Query-wise UB (oracle)   |       323 |      0.214  |    0.4499 | 0.644  |
+| DBPedia-entity | QuDAR-simple (Equal)     |       400 |      0.2595 |    0.3978 | 0.6175 |
+| DBPedia-entity | QuDAR-confidence         |       400 |      0.2591 |    0.3984 | 0.62   |
+| DBPedia-entity | QuDAR-llm                |       400 |      0.2466 |    0.3962 | 0.6275 |
+| DBPedia-entity | QuDAR-llm-debiased       |       400 |      0.2514 |    0.4018 | 0.6425 |
+| DBPedia-entity | Static-train [other]     |       400 |      0.2441 |    0.3884 | 0.59   |
+| DBPedia-entity | Static-train [all]       |       400 |      0.2441 |    0.3884 | 0.59   |
+| DBPedia-entity | Model A [all]            |       400 |      0.2306 |    0.3596 | 0.565  |
+| DBPedia-entity | Model B [all]            |       400 |      0.2372 |    0.3762 | 0.615  |
+| DBPedia-entity | Static UB (oracle)       |       400 |      0.2614 |    0.406  | 0.6275 |
+| DBPedia-entity | Query-wise UB (oracle)   |       400 |      0.3323 |    0.5397 | 0.8275 |
+| FEVER          | QuDAR-simple (Equal)     |      6666 |      0.7901 |    0.6355 | 0.5    |
+| FEVER          | QuDAR-confidence         |      6666 |      0.7896 |    0.6368 | 0.5021 |
+| FEVER          | QuDAR-llm                |      6666 |      0.7871 |    0.652  | 0.5327 |
+| FEVER          | QuDAR-llm-debiased       |      6666 |      0.7885 |    0.6557 | 0.5386 |
+| FEVER          | Static-train [in-domain] |      6666 |      0.8352 |    0.6982 | 0.5759 |
+| FEVER          | Static-train [other]     |      6666 |      0.8123 |    0.6609 | 0.5194 |
+| FEVER          | Static-train [all]       |      6666 |      0.8289 |    0.6915 | 0.5632 |
+| FEVER          | Model A [all]            |      6666 |      0.8304 |    0.6965 | 0.5726 |
+| FEVER          | Model B [all]            |      6666 |      0.8357 |    0.7088 | 0.5965 |
+| FEVER          | Static UB (oracle)       |      6666 |      0.8352 |    0.6982 | 0.5759 |
+| FEVER          | Query-wise UB (oracle)   |      6666 |      0.9006 |    0.8202 | 0.7579 |
